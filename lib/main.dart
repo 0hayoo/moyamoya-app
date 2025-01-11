@@ -99,8 +99,8 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Text(
               '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                  color: context.theme.appColors.statusPositive,
+              style: context.typography.display2Regular.copyWith(
+                  color: context.colors.statusPositive,
               ),
             ),
           ],

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:moyamoya/designsystem/foundation/app_palette.dart';
+import 'package:moyamoya/designsystem/foundation/app_typography.dart';
 
 import 'app_colors_extension.dart';
+import 'app_typography_extension.dart';
 
 class AppTheme with ChangeNotifier {
   ThemeMode _themeMode = ThemeMode.system;
@@ -20,6 +22,7 @@ class AppTheme with ChangeNotifier {
   static final light = ThemeData.light().copyWith(
     extensions: [
       _lightAppColors,
+      _lightAppTypography,
     ],
   );
 
@@ -53,6 +56,42 @@ class AppTheme with ChangeNotifier {
     statusPositive: AppPalette.green50
   );
 
+  static final _lightAppTypography = AppTypographyExtension(
+    display1Bold: AppTypography.display1Bold.copyWith(color: _lightAppColors.labelNormal),
+    display1Medium: AppTypography.display1Medium.copyWith(color: _lightAppColors.labelNormal),
+    display1Regular: AppTypography.display1Regular.copyWith(color: _lightAppColors.labelNormal),
+    display2Bold: AppTypography.display2Bold.copyWith(color: _lightAppColors.labelNormal),
+    display2Medium: AppTypography.display2Medium.copyWith(color: _lightAppColors.labelNormal),
+    display2Regular: AppTypography.display2Regular.copyWith(color: _lightAppColors.labelNormal),
+    title1Bold: AppTypography.title1Bold.copyWith(color: _lightAppColors.labelNormal),
+    title1Medium: AppTypography.title1Medium.copyWith(color: _lightAppColors.labelNormal),
+    title1Regular: AppTypography.title1Regular.copyWith(color: _lightAppColors.labelNormal),
+    title2Bold: AppTypography.title2Bold.copyWith(color: _lightAppColors.labelNormal),
+    title2Medium: AppTypography.title2Medium.copyWith(color: _lightAppColors.labelNormal),
+    title2Regular: AppTypography.title2Regular.copyWith(color: _lightAppColors.labelNormal),
+    title3Bold: AppTypography.title3Bold.copyWith(color: _lightAppColors.labelNormal),
+    title3Medium: AppTypography.title3Medium.copyWith(color: _lightAppColors.labelNormal),
+    title3Regular: AppTypography.title3Regular.copyWith(color: _lightAppColors.labelNormal),
+    heading1Bold: AppTypography.heading1Bold.copyWith(color: _lightAppColors.labelNormal),
+    heading1Medium: AppTypography.heading1Medium.copyWith(color: _lightAppColors.labelNormal),
+    heading1Regular: AppTypography.heading1Regular.copyWith(color: _lightAppColors.labelNormal),
+    heading2Bold: AppTypography.heading2Bold.copyWith(color: _lightAppColors.labelNormal),
+    heading2Medium: AppTypography.heading2Medium.copyWith(color: _lightAppColors.labelNormal),
+    heading2Regular: AppTypography.heading2Regular.copyWith(color: _lightAppColors.labelNormal),
+    headlineBold: AppTypography.headlineBold.copyWith(color: _lightAppColors.labelNormal),
+    headlineMedium: AppTypography.headlineMedium.copyWith(color: _lightAppColors.labelNormal),
+    headlineRegular: AppTypography.headlineRegular.copyWith(color: _lightAppColors.labelNormal),
+    bodyBold: AppTypography.bodyBold.copyWith(color: _lightAppColors.labelNormal),
+    bodyMedium: AppTypography.bodyMedium.copyWith(color: _lightAppColors.labelNormal),
+    bodyRegular: AppTypography.bodyRegular.copyWith(color: _lightAppColors.labelNormal),
+    labelBold: AppTypography.labelBold.copyWith(color: _lightAppColors.labelNormal),
+    labelMedium: AppTypography.labelMedium.copyWith(color: _lightAppColors.labelNormal),
+    labelRegular: AppTypography.labelRegular.copyWith(color: _lightAppColors.labelNormal),
+    captionBold: AppTypography.captionBold.copyWith(color: _lightAppColors.labelNormal),
+    captionMedium: AppTypography.captionMedium.copyWith(color: _lightAppColors.labelNormal),
+    captionRegular: AppTypography.captionRegular.copyWith(color: _lightAppColors.labelNormal),
+  );
+
   //
   // Dark theme
   //
@@ -60,6 +99,7 @@ class AppTheme with ChangeNotifier {
   static final dark = ThemeData.dark().copyWith(
     extensions: [
       _darkAppColors,
+      _darkAppTypography
     ],
   );
 
@@ -92,15 +132,57 @@ class AppTheme with ChangeNotifier {
       statusCautionary: AppPalette.yellow50,
       statusPositive: AppPalette.green50
   );
+
+  static final _darkAppTypography = AppTypographyExtension(
+      display1Bold: AppTypography.display1Bold.copyWith(color: _darkAppColors.labelNormal),
+      display1Medium: AppTypography.display1Medium.copyWith(color: _darkAppColors.labelNormal),
+      display1Regular: AppTypography.display1Regular.copyWith(color: _darkAppColors.labelNormal),
+      display2Bold: AppTypography.display2Bold.copyWith(color: _darkAppColors.labelNormal),
+      display2Medium: AppTypography.display2Medium.copyWith(color: _darkAppColors.labelNormal),
+      display2Regular: AppTypography.display2Regular.copyWith(color: _darkAppColors.labelNormal),
+      title1Bold: AppTypography.title1Bold.copyWith(color: _darkAppColors.labelNormal),
+      title1Medium: AppTypography.title1Medium.copyWith(color: _darkAppColors.labelNormal),
+      title1Regular: AppTypography.title1Regular.copyWith(color: _darkAppColors.labelNormal),
+      title2Bold: AppTypography.title2Bold.copyWith(color: _darkAppColors.labelNormal),
+      title2Medium: AppTypography.title2Medium.copyWith(color: _darkAppColors.labelNormal),
+      title2Regular: AppTypography.title2Regular.copyWith(color: _darkAppColors.labelNormal),
+      title3Bold: AppTypography.title3Bold.copyWith(color: _darkAppColors.labelNormal),
+      title3Medium: AppTypography.title3Medium.copyWith(color: _darkAppColors.labelNormal),
+      title3Regular: AppTypography.title3Regular.copyWith(color: _darkAppColors.labelNormal),
+      heading1Bold: AppTypography.heading1Bold.copyWith(color: _darkAppColors.labelNormal),
+      heading1Medium: AppTypography.heading1Medium.copyWith(color: _darkAppColors.labelNormal),
+      heading1Regular: AppTypography.heading1Regular.copyWith(color: _darkAppColors.labelNormal),
+      heading2Bold: AppTypography.heading2Bold.copyWith(color: _darkAppColors.labelNormal),
+      heading2Medium: AppTypography.heading2Medium.copyWith(color: _darkAppColors.labelNormal),
+      heading2Regular: AppTypography.heading2Regular.copyWith(color: _darkAppColors.labelNormal),
+      headlineBold: AppTypography.headlineBold.copyWith(color: _darkAppColors.labelNormal),
+      headlineMedium: AppTypography.headlineMedium.copyWith(color: _darkAppColors.labelNormal),
+      headlineRegular: AppTypography.headlineRegular.copyWith(color: _darkAppColors.labelNormal),
+      bodyBold: AppTypography.bodyBold.copyWith(color: _darkAppColors.labelNormal),
+      bodyMedium: AppTypography.bodyMedium.copyWith(color: _darkAppColors.labelNormal),
+      bodyRegular: AppTypography.bodyRegular.copyWith(color: _darkAppColors.labelNormal),
+      labelBold: AppTypography.labelBold.copyWith(color: _darkAppColors.labelNormal),
+      labelMedium: AppTypography.labelMedium.copyWith(color: _darkAppColors.labelNormal),
+      labelRegular: AppTypography.labelRegular.copyWith(color: _darkAppColors.labelNormal),
+      captionBold: AppTypography.captionBold.copyWith(color: _darkAppColors.labelNormal),
+      captionMedium: AppTypography.captionMedium.copyWith(color: _darkAppColors.labelNormal),
+      captionRegular: AppTypography.captionRegular.copyWith(color: _darkAppColors.labelNormal),
+  );
 }
 
 extension AppThemeExtension on ThemeData {
   /// Usage example: Theme.of(context).appColors;
   AppColorsExtension get appColors =>
       extension<AppColorsExtension>() ?? AppTheme._lightAppColors;
+
+  AppTypographyExtension get appTypography =>
+      extension<AppTypographyExtension>() ?? AppTheme._lightAppTypography;
 }
 
 extension ThemeGetter on BuildContext {
   // Usage example: `context.theme`
   ThemeData get theme => Theme.of(this);
+
+  AppColorsExtension get colors => theme.appColors;
+  AppTypographyExtension get typography => theme.appTypography;
 }
