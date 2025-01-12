@@ -111,6 +111,21 @@ abstract class AppPalette {
   static const purple20 = Color(0xFF2E0363);
   static const purple10 = Color(0xFF170132);
 
+  /*
+  Baby Pink
+   */
+  static const babyPink99 = Color(0xFFFFFAFC);
+  static const babyPink95 = Color(0xFFFFE5EE);
+  static const babyPink90 = Color(0xFFFFD1E0);
+  static const babyPink80 = Color(0xFFFFBDD2);
+  static const babyPink70 = Color(0xFFFFA8C4);
+  static const babyPink60 = Color(0xFFFF94B7);
+  static const babyPink50 = Color(0xFFFF80A9);
+  static const babyPink40 = Color(0xFFFF6B9B);
+  static const babyPink30 = Color(0xFFFF578D);
+  static const babyPink20 = Color(0xFFFF427F);
+  static const babyPink10 = Color(0xFFFF2E71);
+
   static const common00 = Color(0xFFFFFFFF);
   static const common100 = Color(0xFF000000);
 }

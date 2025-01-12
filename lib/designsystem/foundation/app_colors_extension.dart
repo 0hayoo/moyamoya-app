@@ -21,11 +21,17 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
     required this.elevationBlack1,
     required this.elevationBlack2,
     required this.elevationBlack3,
+    required this.elevationPrimary1,
+    required this.elevationPrimary2,
+    required this.elevationPrimary3,
     required this.staticWhite,
     required this.staticBlack,
     required this.primaryNormal,
     required this.primaryAlternative,
     required this.primaryAssistive,
+    required this.secondaryNormal,
+    required this.secondaryAlternative,
+    required this.secondaryAssistive,
     required this.statusNegative,
     required this.statusCautionary,
     required this.statusPositive,
@@ -55,12 +61,20 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
   final Color elevationBlack2;
   final Color elevationBlack3;
 
+  final Color elevationPrimary1;
+  final Color elevationPrimary2;
+  final Color elevationPrimary3;
+
   final Color staticWhite;
   final Color staticBlack;
 
   final Color primaryNormal;
   final Color primaryAlternative;
   final Color primaryAssistive;
+
+  final Color secondaryNormal;
+  final Color secondaryAlternative;
+  final Color secondaryAssistive;
 
   final Color statusNegative;
   final Color statusCautionary;
@@ -89,11 +103,17 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
     Color? elevationBlack1,
     Color? elevationBlack2,
     Color? elevationBlack3,
+    Color? elevationPrimary1,
+    Color? elevationPrimary2,
+    Color? elevationPrimary3,
     Color? staticWhite,
     Color? staticBlack,
     Color? primaryNormal,
     Color? primaryAlternative,
     Color? primaryAssistive,
+    Color? secondaryNormal,
+    Color? secondaryAlternative,
+    Color? secondaryAssistive,
     Color? statusNegative,
     Color? statusCautionary,
     Color? statusPositive,
@@ -118,11 +138,17 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
       elevationBlack1: elevationBlack1 ?? this.elevationBlack1,
       elevationBlack2: elevationBlack2 ?? this.elevationBlack2,
       elevationBlack3: elevationBlack3 ?? this.elevationBlack3,
+      elevationPrimary1: elevationPrimary1 ?? this.elevationPrimary1,
+      elevationPrimary2: elevationPrimary2 ?? this.elevationPrimary2,
+      elevationPrimary3: elevationPrimary3 ?? this.elevationPrimary3,
       staticWhite: staticWhite ?? this.staticWhite,
       staticBlack: staticBlack ?? this.staticBlack,
       primaryNormal: primaryNormal ?? this.primaryNormal,
       primaryAlternative: primaryAlternative ?? this.primaryAlternative,
       primaryAssistive: primaryAssistive ?? this.primaryAssistive,
+      secondaryNormal: secondaryNormal ?? this.secondaryNormal,
+      secondaryAlternative: secondaryAlternative ?? this.secondaryAlternative,
+      secondaryAssistive: secondaryAssistive ?? this.secondaryAssistive,
       statusNegative: statusNegative ?? this.statusNegative,
       statusCautionary: statusCautionary ?? this.statusCautionary,
       statusPositive: statusPositive ?? this.statusPositive,
@@ -158,11 +184,17 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
       elevationBlack1: Color.lerp(elevationBlack1, other.elevationBlack1, t)!,
       elevationBlack2: Color.lerp(elevationBlack2, other.elevationBlack2, t)!,
       elevationBlack3: Color.lerp(elevationBlack3, other.elevationBlack3, t)!,
+      elevationPrimary1: Color.lerp(elevationPrimary1, other.elevationPrimary1, t)!,
+      elevationPrimary2: Color.lerp(elevationPrimary2, other.elevationPrimary2, t)!,
+      elevationPrimary3: Color.lerp(elevationPrimary3, other.elevationPrimary3, t)!,
       staticWhite: Color.lerp(staticWhite, other.staticWhite, t)!,
       staticBlack: Color.lerp(staticBlack, other.staticBlack, t)!,
       primaryNormal: Color.lerp(primaryNormal, other.primaryNormal, t)!,
       primaryAlternative: Color.lerp(primaryAlternative, other.primaryAlternative, t)!,
       primaryAssistive: Color.lerp(primaryAssistive, other.primaryAssistive, t)!,
+      secondaryNormal: Color.lerp(secondaryNormal, other.secondaryNormal, t)!,
+      secondaryAlternative: Color.lerp(secondaryAlternative, other.secondaryAlternative, t)!,
+      secondaryAssistive: Color.lerp(secondaryAssistive, other.secondaryAssistive, t)!,
       statusNegative: Color.lerp(statusNegative, other.statusNegative, t)!,
       statusCautionary: Color.lerp(statusCautionary, other.statusCautionary, t)!,
       statusPositive: Color.lerp(statusPositive, other.statusPositive, t)!,
