@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:moyamoya/designsystem/component/segmented_button.dart';
+import 'package:moyamoya/designsystem/component/text_button.dart';
 import 'package:moyamoya/designsystem/foundation/app_theme.dart';
 import 'package:provider/provider.dart';
 
@@ -79,41 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 color: context.colors.statusPositive,
               ),
             ),
-            SizedBox(
-              width: double.infinity,
-              height: 48,
-              child: MoyaMoyaSegmentedButton(
-                segments: [
-                  MoyaMoyaSegment(
-                    selected: _selectIndex == 0,
-                    onClick: () {
-                      _changeSelectIndex(0);
-                    },
-                    text: "text1",
-                  ),
-                  MoyaMoyaSegment(
-                    selected: _selectIndex == 1,
-                    onClick: () {
-                      _changeSelectIndex(1);
-                    },
-                    text: "text2",
-                  ),
-                  MoyaMoyaSegment(
-                    selected: _selectIndex == 2,
-                    onClick: () {
-                      _changeSelectIndex(2);
-                    },
-                    text: "text3",
-                  ),
-                  MoyaMoyaSegment(
-                    selected: _selectIndex == 3,
-                    onClick: () {
-                      _changeSelectIndex(3);
-                    },
-                    text: "text4",
-                  ),
-                ],
-              ),
+            MoyaMoyaTextButton(text: "text", buttonSize: TextButtonSize.large, onPressed: () {},)
               // child: MoyaMoyaButton(
               //   text: "Hello",
               //   buttonSize: ButtonSize.small,
@@ -122,7 +89,6 @@ class _MyHomePageState extends State<MyHomePage> {
               //     print("hello");
               //   },
               // ),
-            )
           ],
         ),
       ),

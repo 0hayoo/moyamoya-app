@@ -35,6 +35,7 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
     required this.statusNegative,
     required this.statusCautionary,
     required this.statusPositive,
+    required this.statusHovered,
   });
 
   final Color labelNormal;
@@ -79,8 +80,7 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
   final Color statusNegative;
   final Color statusCautionary;
   final Color statusPositive;
-
-
+  final Color statusHovered;
 
   @override
   ThemeExtension<AppColorsExtension> copyWith({
@@ -117,6 +117,7 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
     Color? statusNegative,
     Color? statusCautionary,
     Color? statusPositive,
+    Color? statusHovered,
   }) {
     return AppColorsExtension(
       labelNormal: labelNormal ?? this.labelNormal,
@@ -134,7 +135,8 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
       fillAssistive: fillAssistive ?? this.fillAssistive,
       backgroundNormal: backgroundNormal ?? this.backgroundNormal,
       backgroundNeutral: backgroundNeutral ?? this.backgroundNeutral,
-      backgroundAlternative: backgroundAlternative ?? this.backgroundAlternative,
+      backgroundAlternative:
+          backgroundAlternative ?? this.backgroundAlternative,
       elevationBlack1: elevationBlack1 ?? this.elevationBlack1,
       elevationBlack2: elevationBlack2 ?? this.elevationBlack2,
       elevationBlack3: elevationBlack3 ?? this.elevationBlack3,
@@ -152,6 +154,7 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
       statusNegative: statusNegative ?? this.statusNegative,
       statusCautionary: statusCautionary ?? this.statusCautionary,
       statusPositive: statusPositive ?? this.statusPositive,
+      statusHovered: statusHovered ?? this.statusHovered,
     );
   }
 
@@ -165,39 +168,51 @@ class AppColorsExtension extends ThemeExtension<AppColorsExtension> {
     }
 
     return AppColorsExtension(
-      labelNormal: Color.lerp(labelNormal, other.labelNormal, t)!,
-      labelStrong: Color.lerp(labelStrong, other.labelStrong, t)!,
-      labelNeutral: Color.lerp(labelNeutral, other.labelNeutral, t)!,
-      labelAlternative: Color.lerp(labelAlternative, other.labelAlternative, t)!,
-      labelAssistive: Color.lerp(labelAssistive, other.labelAssistive, t)!,
-      labelDisable: Color.lerp(labelDisable, other.labelDisable, t)!,
-      lineNormal: Color.lerp(lineNormal, other.lineNormal, t)!,
-      lineNeutral: Color.lerp(lineNeutral, other.lineNeutral, t)!,
-      lineAlternative: Color.lerp(lineAlternative, other.lineAlternative, t)!,
-      fillNormal: Color.lerp(fillNormal, other.fillNormal, t)!,
-      fillNeutral: Color.lerp(fillNeutral, other.fillNeutral, t)!,
-      fillAlternative: Color.lerp(fillAlternative, other.fillAlternative, t)!,
-      fillAssistive: Color.lerp(fillAssistive, other.fillAssistive, t)!,
-      backgroundNormal: Color.lerp(backgroundNormal, other.backgroundNormal, t)!,
-      backgroundNeutral: Color.lerp(backgroundNeutral, other.backgroundNeutral, t)!,
-      backgroundAlternative: Color.lerp(backgroundAlternative, other.backgroundAlternative, t)!,
-      elevationBlack1: Color.lerp(elevationBlack1, other.elevationBlack1, t)!,
-      elevationBlack2: Color.lerp(elevationBlack2, other.elevationBlack2, t)!,
-      elevationBlack3: Color.lerp(elevationBlack3, other.elevationBlack3, t)!,
-      elevationPrimary1: Color.lerp(elevationPrimary1, other.elevationPrimary1, t)!,
-      elevationPrimary2: Color.lerp(elevationPrimary2, other.elevationPrimary2, t)!,
-      elevationPrimary3: Color.lerp(elevationPrimary3, other.elevationPrimary3, t)!,
-      staticWhite: Color.lerp(staticWhite, other.staticWhite, t)!,
-      staticBlack: Color.lerp(staticBlack, other.staticBlack, t)!,
-      primaryNormal: Color.lerp(primaryNormal, other.primaryNormal, t)!,
-      primaryAlternative: Color.lerp(primaryAlternative, other.primaryAlternative, t)!,
-      primaryAssistive: Color.lerp(primaryAssistive, other.primaryAssistive, t)!,
-      secondaryNormal: Color.lerp(secondaryNormal, other.secondaryNormal, t)!,
-      secondaryAlternative: Color.lerp(secondaryAlternative, other.secondaryAlternative, t)!,
-      secondaryAssistive: Color.lerp(secondaryAssistive, other.secondaryAssistive, t)!,
-      statusNegative: Color.lerp(statusNegative, other.statusNegative, t)!,
-      statusCautionary: Color.lerp(statusCautionary, other.statusCautionary, t)!,
-      statusPositive: Color.lerp(statusPositive, other.statusPositive, t)!,
-    );
+        labelNormal: Color.lerp(labelNormal, other.labelNormal, t)!,
+        labelStrong: Color.lerp(labelStrong, other.labelStrong, t)!,
+        labelNeutral: Color.lerp(labelNeutral, other.labelNeutral, t)!,
+        labelAlternative:
+            Color.lerp(labelAlternative, other.labelAlternative, t)!,
+        labelAssistive: Color.lerp(labelAssistive, other.labelAssistive, t)!,
+        labelDisable: Color.lerp(labelDisable, other.labelDisable, t)!,
+        lineNormal: Color.lerp(lineNormal, other.lineNormal, t)!,
+        lineNeutral: Color.lerp(lineNeutral, other.lineNeutral, t)!,
+        lineAlternative: Color.lerp(lineAlternative, other.lineAlternative, t)!,
+        fillNormal: Color.lerp(fillNormal, other.fillNormal, t)!,
+        fillNeutral: Color.lerp(fillNeutral, other.fillNeutral, t)!,
+        fillAlternative: Color.lerp(fillAlternative, other.fillAlternative, t)!,
+        fillAssistive: Color.lerp(fillAssistive, other.fillAssistive, t)!,
+        backgroundNormal:
+            Color.lerp(backgroundNormal, other.backgroundNormal, t)!,
+        backgroundNeutral:
+            Color.lerp(backgroundNeutral, other.backgroundNeutral, t)!,
+        backgroundAlternative:
+            Color.lerp(backgroundAlternative, other.backgroundAlternative, t)!,
+        elevationBlack1: Color.lerp(elevationBlack1, other.elevationBlack1, t)!,
+        elevationBlack2: Color.lerp(elevationBlack2, other.elevationBlack2, t)!,
+        elevationBlack3: Color.lerp(elevationBlack3, other.elevationBlack3, t)!,
+        elevationPrimary1:
+            Color.lerp(elevationPrimary1, other.elevationPrimary1, t)!,
+        elevationPrimary2:
+            Color.lerp(elevationPrimary2, other.elevationPrimary2, t)!,
+        elevationPrimary3:
+            Color.lerp(elevationPrimary3, other.elevationPrimary3, t)!,
+        staticWhite: Color.lerp(staticWhite, other.staticWhite, t)!,
+        staticBlack: Color.lerp(staticBlack, other.staticBlack, t)!,
+        primaryNormal: Color.lerp(primaryNormal, other.primaryNormal, t)!,
+        primaryAlternative:
+            Color.lerp(primaryAlternative, other.primaryAlternative, t)!,
+        primaryAssistive:
+            Color.lerp(primaryAssistive, other.primaryAssistive, t)!,
+        secondaryNormal: Color.lerp(secondaryNormal, other.secondaryNormal, t)!,
+        secondaryAlternative:
+            Color.lerp(secondaryAlternative, other.secondaryAlternative, t)!,
+        secondaryAssistive:
+            Color.lerp(secondaryAssistive, other.secondaryAssistive, t)!,
+        statusNegative: Color.lerp(statusNegative, other.statusNegative, t)!,
+        statusCautionary:
+            Color.lerp(statusCautionary, other.statusCautionary, t)!,
+        statusPositive: Color.lerp(statusPositive, other.statusPositive, t)!,
+        statusHovered: Color.lerp(statusHovered, other.statusHovered, t)!);
   }
 }
