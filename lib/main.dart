@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:moyamoya/designsystem/component/button.dart';
 import 'package:moyamoya/designsystem/foundation/app_theme.dart';
 import 'package:provider/provider.dart';
 
@@ -18,8 +19,8 @@ class MoyaMoyaApp extends StatelessWidget {
         theme: AppTheme.light,
         darkTheme: AppTheme.dark,
         themeMode: context.watch<AppTheme>().themeMode,
-        debugShowCheckedModeBanner: false ,
-        home: const MyHomePage(title: 'Flutter Demo Home Page' ),
+        debugShowCheckedModeBanner: false,
+        home: const MyHomePage(title: 'Flutter Demo Home Page'),
       ),
     );
   }
@@ -100,9 +101,20 @@ class _MyHomePageState extends State<MyHomePage> {
             Text(
               '$_counter',
               style: context.typography.display2Regular.copyWith(
-                  color: context.colors.statusPositive,
+                color: context.colors.statusPositive,
               ),
             ),
+            SizedBox(
+              width: double.infinity,
+              child: MoyaMoyaButton(
+                text: "Hello",
+                buttonSize: ButtonSize.small,
+                buttonType: ButtonType.primary,
+                onPressed: () {
+                  print("hello");
+                },
+              ),
+            )
           ],
         ),
       ),
