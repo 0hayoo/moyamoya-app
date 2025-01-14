@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:moyamoya/designsystem/component/centered_text_field.dart';
 import 'package:moyamoya/designsystem/component/text_button.dart';
+import 'package:moyamoya/designsystem/component/text_field.dart';
 import 'package:moyamoya/designsystem/foundation/app_theme.dart';
 import 'package:provider/provider.dart';
 
@@ -89,6 +90,11 @@ class _MyHomePageState extends State<MyHomePage> {
               controller: TextEditingController(text: "hi"),
               hintText: "hi",
             ),
+            MoyaMoyaTextField(
+              onPrefixClick: () {},
+              onSuffixClick: () {},
+              controller: TextEditingController(text: "hi"),
+            )
             // child: MoyaMoyaButton(
             //   text: "Hello",
             //   buttonSize: ButtonSize.small,
