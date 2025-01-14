@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:moyamoya/designsystem/component/segmented_button.dart';
+import 'package:moyamoya/designsystem/component/centered_text_field.dart';
 import 'package:moyamoya/designsystem/component/text_button.dart';
 import 'package:moyamoya/designsystem/foundation/app_theme.dart';
 import 'package:provider/provider.dart';
@@ -80,15 +80,23 @@ class _MyHomePageState extends State<MyHomePage> {
                 color: context.colors.statusPositive,
               ),
             ),
-            MoyaMoyaTextButton(text: "text", buttonSize: TextButtonSize.large, onPressed: () {},)
-              // child: MoyaMoyaButton(
-              //   text: "Hello",
-              //   buttonSize: ButtonSize.small,
-              //   buttonType: ButtonType.primary,
-              //   onPressed: () {
-              //     print("hello");
-              //   },
-              // ),
+            MoyaMoyaTextButton(
+              text: "text",
+              buttonSize: TextButtonSize.large,
+              onPressed: () {},
+            ),
+            CenteredTextField(
+              controller: TextEditingController(text: "hi"),
+              hintText: "hi",
+            ),
+            // child: MoyaMoyaButton(
+            //   text: "Hello",
+            //   buttonSize: ButtonSize.small,
+            //   buttonType: ButtonType.primary,
+            //   onPressed: () {
+            //     print("hello");
+            //   },
+            // ),
           ],
         ),
       ),
