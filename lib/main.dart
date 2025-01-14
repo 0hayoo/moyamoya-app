@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:moyamoya/designsystem/component/centered_text_field.dart';
-import 'package:moyamoya/designsystem/component/text_button.dart';
+import 'package:moyamoya/designsystem/component/checkbox.dart';
 import 'package:moyamoya/designsystem/component/text_field.dart';
+import 'package:moyamoya/designsystem/component/toggle.dart';
 import 'package:moyamoya/designsystem/foundation/app_theme.dart';
 import 'package:provider/provider.dart';
 
@@ -49,6 +49,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
   int _selectIndex = 0;
+  bool _isChecked = false;
   void _incrementCounter() {
     setState(() {
       _counter++;
@@ -58,6 +59,12 @@ class _MyHomePageState extends State<MyHomePage> {
   void _changeSelectIndex(int index) {
     setState(() {
       _selectIndex = index;
+    });
+  }
+
+  void _changeIsChecked(bool checked) {
+    setState(() {
+      _isChecked = checked;
     });
   }
 
@@ -81,20 +88,28 @@ class _MyHomePageState extends State<MyHomePage> {
                 color: context.colors.statusPositive,
               ),
             ),
-            MoyaMoyaTextButton(
-              text: "text",
-              buttonSize: TextButtonSize.large,
-              onPressed: () {},
-            ),
-            CenteredTextField(
-              controller: TextEditingController(text: "hi"),
-              hintText: "hi",
-            ),
+            // MoyaMoyaTextButton(
+            //   text: "text",
+            //   buttonSize: TextButtonSize.large,
+            //   onPressed: () {},
+            // ),
+            // CenteredTextField(
+            //   controller: TextEditingController(text: "hi"),
+            //   hintText: "hi",
+            // ),
             MoyaMoyaTextField(
               onPrefixClick: () {},
               onSuffixClick: () {},
               controller: TextEditingController(text: "hi"),
-            )
+            ),
+            MoyaMoyaToggle(
+              isChecked: _isChecked,
+              onChanged: _changeIsChecked,
+            ),
+            MoyaMoyaCheckbox(
+              isChecked: _isChecked,
+              onChanged: _changeIsChecked,
+            ),
             // child: MoyaMoyaButton(
             //   text: "Hello",
             //   buttonSize: ButtonSize.small,
