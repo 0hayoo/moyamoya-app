@@ -16,9 +16,11 @@ class MoyaMoyaTextButton extends StatefulWidget {
     required this.buttonSize,
     required this.onPressed,
     this.isEnabled = true,
+    this.textColor,
   });
 
   final String text;
+  final Color? textColor;
   final TextButtonSize buttonSize;
   final bool isEnabled;
   final GestureTapCallback onPressed;
@@ -55,7 +57,7 @@ class _MoyaMoyaTextButtonState extends State<MoyaMoyaTextButton> {
             child: Text(
               widget.text,
               style: _getTextStyle(context).copyWith(
-                color: context.colors.labelNormal
+                color: (widget.textColor ?? context.colors.labelNormal)
                     .withValues(alpha: widget.isEnabled ? 1 : 0.6),
               ),
             ),

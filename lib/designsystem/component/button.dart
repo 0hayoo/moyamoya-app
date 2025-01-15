@@ -93,15 +93,15 @@ class _MoyaMoyaButtonState extends State<MoyaMoyaButton> {
       switch (widget.buttonType) {
         ButtonType.primary => context.colors.primaryNormal,
         ButtonType.secondary => context.colors.primaryAssistive,
-        ButtonType.assistive => context.colors.fillNormal,
-        ButtonType.alternative => context.colors.staticWhite,
+        ButtonType.assistive => context.colors.staticWhite,
+        ButtonType.alternative => context.colors.fillNormal,
       };
 
   Color _getTextColor(BuildContext context) => switch (widget.buttonType) {
         ButtonType.primary => context.colors.staticWhite,
         ButtonType.secondary => context.colors.primaryNormal,
-        ButtonType.assistive => context.colors.labelNeutral,
-        ButtonType.alternative => context.colors.staticBlack,
+        ButtonType.assistive => context.colors.staticBlack,
+        ButtonType.alternative => context.colors.labelNeutral,
       };
 
   EdgeInsets? _getPadding() => switch (widget.buttonSize) {

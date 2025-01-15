@@ -66,72 +66,138 @@ class AppTheme with ChangeNotifier {
   );
 
   static final _lightAppTypography = AppTypographyExtension(
-    display1Bold:
-        AppTypography.display1Bold.copyWith(color: _lightAppColors.labelNormal),
-    display1Medium: AppTypography.display1Medium
-        .copyWith(color: _lightAppColors.labelNormal),
-    display1Regular: AppTypography.display1Regular
-        .copyWith(color: _lightAppColors.labelNormal),
-    display2Bold:
-        AppTypography.display2Bold.copyWith(color: _lightAppColors.labelNormal),
-    display2Medium: AppTypography.display2Medium
-        .copyWith(color: _lightAppColors.labelNormal),
-    display2Regular: AppTypography.display2Regular
-        .copyWith(color: _lightAppColors.labelNormal),
-    title1Bold:
-        AppTypography.title1Bold.copyWith(color: _lightAppColors.labelNormal),
-    title1Medium:
-        AppTypography.title1Medium.copyWith(color: _lightAppColors.labelNormal),
-    title1Regular: AppTypography.title1Regular
-        .copyWith(color: _lightAppColors.labelNormal),
-    title2Bold:
-        AppTypography.title2Bold.copyWith(color: _lightAppColors.labelNormal),
-    title2Medium:
-        AppTypography.title2Medium.copyWith(color: _lightAppColors.labelNormal),
-    title2Regular: AppTypography.title2Regular
-        .copyWith(color: _lightAppColors.labelNormal),
-    title3Bold:
-        AppTypography.title3Bold.copyWith(color: _lightAppColors.labelNormal),
-    title3Medium:
-        AppTypography.title3Medium.copyWith(color: _lightAppColors.labelNormal),
-    title3Regular: AppTypography.title3Regular
-        .copyWith(color: _lightAppColors.labelNormal),
-    heading1Bold:
-        AppTypography.heading1Bold.copyWith(color: _lightAppColors.labelNormal),
-    heading1Medium: AppTypography.heading1Medium
-        .copyWith(color: _lightAppColors.labelNormal),
-    heading1Regular: AppTypography.heading1Regular
-        .copyWith(color: _lightAppColors.labelNormal),
-    heading2Bold:
-        AppTypography.heading2Bold.copyWith(color: _lightAppColors.labelNormal),
-    heading2Medium: AppTypography.heading2Medium
-        .copyWith(color: _lightAppColors.labelNormal),
-    heading2Regular: AppTypography.heading2Regular
-        .copyWith(color: _lightAppColors.labelNormal),
-    headlineBold:
-        AppTypography.headlineBold.copyWith(color: _lightAppColors.labelNormal),
-    headlineMedium: AppTypography.headlineMedium
-        .copyWith(color: _lightAppColors.labelNormal),
-    headlineRegular: AppTypography.headlineRegular
-        .copyWith(color: _lightAppColors.labelNormal),
-    bodyBold:
-        AppTypography.bodyBold.copyWith(color: _lightAppColors.labelNormal),
-    bodyMedium:
-        AppTypography.bodyMedium.copyWith(color: _lightAppColors.labelNormal),
-    bodyRegular:
-        AppTypography.bodyRegular.copyWith(color: _lightAppColors.labelNormal),
-    labelBold:
-        AppTypography.labelBold.copyWith(color: _lightAppColors.labelNormal),
-    labelMedium:
-        AppTypography.labelMedium.copyWith(color: _lightAppColors.labelNormal),
-    labelRegular:
-        AppTypography.labelRegular.copyWith(color: _lightAppColors.labelNormal),
-    captionBold:
-        AppTypography.captionBold.copyWith(color: _lightAppColors.labelNormal),
-    captionMedium: AppTypography.captionMedium
-        .copyWith(color: _lightAppColors.labelNormal),
-    captionRegular: AppTypography.captionRegular
-        .copyWith(color: _lightAppColors.labelNormal),
+    display1Bold: AppTypography.display1Bold.copyWith(
+      color: _lightAppColors.labelNormal,
+      decoration: TextDecoration.none,
+    ),
+    display1Medium: AppTypography.display1Medium.copyWith(
+      color: _lightAppColors.labelNormal,
+      decoration: TextDecoration.none,
+    ),
+    display1Regular: AppTypography.display1Regular.copyWith(
+      color: _lightAppColors.labelNormal,
+      decoration: TextDecoration.none,
+    ),
+    display2Bold: AppTypography.display2Bold.copyWith(
+      color: _lightAppColors.labelNormal,
+      decoration: TextDecoration.none,
+    ),
+    display2Medium: AppTypography.display2Medium.copyWith(
+      color: _lightAppColors.labelNormal,
+      decoration: TextDecoration.none,
+    ),
+    display2Regular: AppTypography.display2Regular.copyWith(
+      color: _lightAppColors.labelNormal,
+      decoration: TextDecoration.none,
+    ),
+    title1Bold: AppTypography.title1Bold.copyWith(
+      color: _lightAppColors.labelNormal,
+      decoration: TextDecoration.none,
+    ),
+    title1Medium: AppTypography.title1Medium.copyWith(
+      color: _lightAppColors.labelNormal,
+      decoration: TextDecoration.none,
+    ),
+    title1Regular: AppTypography.title1Regular.copyWith(
+      color: _lightAppColors.labelNormal,
+      decoration: TextDecoration.none,
+    ),
+    title2Bold: AppTypography.title2Bold.copyWith(
+      color: _lightAppColors.labelNormal,
+      decoration: TextDecoration.none,
+    ),
+    title2Medium: AppTypography.title2Medium.copyWith(
+      color: _lightAppColors.labelNormal,
+      decoration: TextDecoration.none,
+    ),
+    title2Regular: AppTypography.title2Regular.copyWith(
+      color: _lightAppColors.labelNormal,
+      decoration: TextDecoration.none,
+    ),
+    title3Bold: AppTypography.title3Bold.copyWith(
+      color: _lightAppColors.labelNormal,
+      decoration: TextDecoration.none,
+    ),
+    title3Medium: AppTypography.title3Medium.copyWith(
+      color: _lightAppColors.labelNormal,
+      decoration: TextDecoration.none,
+    ),
+    title3Regular: AppTypography.title3Regular.copyWith(
+      color: _lightAppColors.labelNormal,
+      decoration: TextDecoration.none,
+    ),
+    heading1Bold: AppTypography.heading1Bold.copyWith(
+      color: _lightAppColors.labelNormal,
+      decoration: TextDecoration.none,
+    ),
+    heading1Medium: AppTypography.heading1Medium.copyWith(
+      color: _lightAppColors.labelNormal,
+      decoration: TextDecoration.none,
+    ),
+    heading1Regular: AppTypography.heading1Regular.copyWith(
+      color: _lightAppColors.labelNormal,
+      decoration: TextDecoration.none,
+    ),
+    heading2Bold: AppTypography.heading2Bold.copyWith(
+      color: _lightAppColors.labelNormal,
+      decoration: TextDecoration.none,
+    ),
+    heading2Medium: AppTypography.heading2Medium.copyWith(
+      color: _lightAppColors.labelNormal,
+      decoration: TextDecoration.none,
+    ),
+    heading2Regular: AppTypography.heading2Regular.copyWith(
+      color: _lightAppColors.labelNormal,
+      decoration: TextDecoration.none,
+    ),
+    headlineBold: AppTypography.headlineBold.copyWith(
+      color: _lightAppColors.labelNormal,
+      decoration: TextDecoration.none,
+    ),
+    headlineMedium: AppTypography.headlineMedium.copyWith(
+      color: _lightAppColors.labelNormal,
+      decoration: TextDecoration.none,
+    ),
+    headlineRegular: AppTypography.headlineRegular.copyWith(
+      color: _lightAppColors.labelNormal,
+      decoration: TextDecoration.none,
+    ),
+    bodyBold: AppTypography.bodyBold.copyWith(
+      color: _lightAppColors.labelNormal,
+      decoration: TextDecoration.none,
+    ),
+    bodyMedium: AppTypography.bodyMedium.copyWith(
+      color: _lightAppColors.labelNormal,
+      decoration: TextDecoration.none,
+    ),
+    bodyRegular: AppTypography.bodyRegular.copyWith(
+      color: _lightAppColors.labelNormal,
+      decoration: TextDecoration.none,
+    ),
+    labelBold: AppTypography.labelBold.copyWith(
+      color: _lightAppColors.labelNormal,
+      decoration: TextDecoration.none,
+    ),
+    labelMedium: AppTypography.labelMedium.copyWith(
+      color: _lightAppColors.labelNormal,
+      decoration: TextDecoration.none,
+    ),
+    labelRegular: AppTypography.labelRegular.copyWith(
+      color: _lightAppColors.labelNormal,
+      decoration: TextDecoration.none,
+    ),
+    captionBold: AppTypography.captionBold.copyWith(
+      color: _lightAppColors.labelNormal,
+      decoration: TextDecoration.none,
+    ),
+    captionMedium: AppTypography.captionMedium.copyWith(
+      color: _lightAppColors.labelNormal,
+      decoration: TextDecoration.none,
+    ),
+    captionRegular: AppTypography.captionRegular.copyWith(
+      color: _lightAppColors.labelNormal,
+      decoration: TextDecoration.none,
+    ),
   );
 
   static final _lightAppShadow = AppShadowExtension(
@@ -206,72 +272,138 @@ class AppTheme with ChangeNotifier {
   );
 
   static final _darkAppTypography = AppTypographyExtension(
-    display1Bold:
-        AppTypography.display1Bold.copyWith(color: _darkAppColors.labelNormal),
-    display1Medium: AppTypography.display1Medium
-        .copyWith(color: _darkAppColors.labelNormal),
-    display1Regular: AppTypography.display1Regular
-        .copyWith(color: _darkAppColors.labelNormal),
-    display2Bold:
-        AppTypography.display2Bold.copyWith(color: _darkAppColors.labelNormal),
-    display2Medium: AppTypography.display2Medium
-        .copyWith(color: _darkAppColors.labelNormal),
-    display2Regular: AppTypography.display2Regular
-        .copyWith(color: _darkAppColors.labelNormal),
-    title1Bold:
-        AppTypography.title1Bold.copyWith(color: _darkAppColors.labelNormal),
-    title1Medium:
-        AppTypography.title1Medium.copyWith(color: _darkAppColors.labelNormal),
-    title1Regular:
-        AppTypography.title1Regular.copyWith(color: _darkAppColors.labelNormal),
-    title2Bold:
-        AppTypography.title2Bold.copyWith(color: _darkAppColors.labelNormal),
-    title2Medium:
-        AppTypography.title2Medium.copyWith(color: _darkAppColors.labelNormal),
-    title2Regular:
-        AppTypography.title2Regular.copyWith(color: _darkAppColors.labelNormal),
-    title3Bold:
-        AppTypography.title3Bold.copyWith(color: _darkAppColors.labelNormal),
-    title3Medium:
-        AppTypography.title3Medium.copyWith(color: _darkAppColors.labelNormal),
-    title3Regular:
-        AppTypography.title3Regular.copyWith(color: _darkAppColors.labelNormal),
-    heading1Bold:
-        AppTypography.heading1Bold.copyWith(color: _darkAppColors.labelNormal),
-    heading1Medium: AppTypography.heading1Medium
-        .copyWith(color: _darkAppColors.labelNormal),
-    heading1Regular: AppTypography.heading1Regular
-        .copyWith(color: _darkAppColors.labelNormal),
-    heading2Bold:
-        AppTypography.heading2Bold.copyWith(color: _darkAppColors.labelNormal),
-    heading2Medium: AppTypography.heading2Medium
-        .copyWith(color: _darkAppColors.labelNormal),
-    heading2Regular: AppTypography.heading2Regular
-        .copyWith(color: _darkAppColors.labelNormal),
-    headlineBold:
-        AppTypography.headlineBold.copyWith(color: _darkAppColors.labelNormal),
-    headlineMedium: AppTypography.headlineMedium
-        .copyWith(color: _darkAppColors.labelNormal),
-    headlineRegular: AppTypography.headlineRegular
-        .copyWith(color: _darkAppColors.labelNormal),
-    bodyBold:
-        AppTypography.bodyBold.copyWith(color: _darkAppColors.labelNormal),
-    bodyMedium:
-        AppTypography.bodyMedium.copyWith(color: _darkAppColors.labelNormal),
-    bodyRegular:
-        AppTypography.bodyRegular.copyWith(color: _darkAppColors.labelNormal),
-    labelBold:
-        AppTypography.labelBold.copyWith(color: _darkAppColors.labelNormal),
-    labelMedium:
-        AppTypography.labelMedium.copyWith(color: _darkAppColors.labelNormal),
-    labelRegular:
-        AppTypography.labelRegular.copyWith(color: _darkAppColors.labelNormal),
-    captionBold:
-        AppTypography.captionBold.copyWith(color: _darkAppColors.labelNormal),
-    captionMedium:
-        AppTypography.captionMedium.copyWith(color: _darkAppColors.labelNormal),
-    captionRegular: AppTypography.captionRegular
-        .copyWith(color: _darkAppColors.labelNormal),
+    display1Bold: AppTypography.display1Bold.copyWith(
+      color: _darkAppColors.labelNormal,
+      decoration: TextDecoration.none,
+    ),
+    display1Medium: AppTypography.display1Medium.copyWith(
+      color: _darkAppColors.labelNormal,
+      decoration: TextDecoration.none,
+    ),
+    display1Regular: AppTypography.display1Regular.copyWith(
+      color: _darkAppColors.labelNormal,
+      decoration: TextDecoration.none,
+    ),
+    display2Bold: AppTypography.display2Bold.copyWith(
+      color: _darkAppColors.labelNormal,
+      decoration: TextDecoration.none,
+    ),
+    display2Medium: AppTypography.display2Medium.copyWith(
+      color: _darkAppColors.labelNormal,
+      decoration: TextDecoration.none,
+    ),
+    display2Regular: AppTypography.display2Regular.copyWith(
+      color: _darkAppColors.labelNormal,
+      decoration: TextDecoration.none,
+    ),
+    title1Bold: AppTypography.title1Bold.copyWith(
+      color: _darkAppColors.labelNormal,
+      decoration: TextDecoration.none,
+    ),
+    title1Medium: AppTypography.title1Medium.copyWith(
+      color: _darkAppColors.labelNormal,
+      decoration: TextDecoration.none,
+    ),
+    title1Regular: AppTypography.title1Regular.copyWith(
+      color: _darkAppColors.labelNormal,
+      decoration: TextDecoration.none,
+    ),
+    title2Bold: AppTypography.title2Bold.copyWith(
+      color: _darkAppColors.labelNormal,
+      decoration: TextDecoration.none,
+    ),
+    title2Medium: AppTypography.title2Medium.copyWith(
+      color: _darkAppColors.labelNormal,
+      decoration: TextDecoration.none,
+    ),
+    title2Regular: AppTypography.title2Regular.copyWith(
+      color: _darkAppColors.labelNormal,
+      decoration: TextDecoration.none,
+    ),
+    title3Bold: AppTypography.title3Bold.copyWith(
+      color: _darkAppColors.labelNormal,
+      decoration: TextDecoration.none,
+    ),
+    title3Medium: AppTypography.title3Medium.copyWith(
+      color: _darkAppColors.labelNormal,
+      decoration: TextDecoration.none,
+    ),
+    title3Regular: AppTypography.title3Regular.copyWith(
+      color: _darkAppColors.labelNormal,
+      decoration: TextDecoration.none,
+    ),
+    heading1Bold: AppTypography.heading1Bold.copyWith(
+      color: _darkAppColors.labelNormal,
+      decoration: TextDecoration.none,
+    ),
+    heading1Medium: AppTypography.heading1Medium.copyWith(
+      color: _darkAppColors.labelNormal,
+      decoration: TextDecoration.none,
+    ),
+    heading1Regular: AppTypography.heading1Regular.copyWith(
+      color: _darkAppColors.labelNormal,
+      decoration: TextDecoration.none,
+    ),
+    heading2Bold: AppTypography.heading2Bold.copyWith(
+      color: _darkAppColors.labelNormal,
+      decoration: TextDecoration.none,
+    ),
+    heading2Medium: AppTypography.heading2Medium.copyWith(
+      color: _darkAppColors.labelNormal,
+      decoration: TextDecoration.none,
+    ),
+    heading2Regular: AppTypography.heading2Regular.copyWith(
+      color: _darkAppColors.labelNormal,
+      decoration: TextDecoration.none,
+    ),
+    headlineBold: AppTypography.headlineBold.copyWith(
+      color: _darkAppColors.labelNormal,
+      decoration: TextDecoration.none,
+    ),
+    headlineMedium: AppTypography.headlineMedium.copyWith(
+      color: _darkAppColors.labelNormal,
+      decoration: TextDecoration.none,
+    ),
+    headlineRegular: AppTypography.headlineRegular.copyWith(
+      color: _darkAppColors.labelNormal,
+      decoration: TextDecoration.none,
+    ),
+    bodyBold: AppTypography.bodyBold.copyWith(
+      color: _darkAppColors.labelNormal,
+      decoration: TextDecoration.none,
+    ),
+    bodyMedium: AppTypography.bodyMedium.copyWith(
+      color: _darkAppColors.labelNormal,
+      decoration: TextDecoration.none,
+    ),
+    bodyRegular: AppTypography.bodyRegular.copyWith(
+      color: _darkAppColors.labelNormal,
+      decoration: TextDecoration.none,
+    ),
+    labelBold: AppTypography.labelBold.copyWith(
+      color: _darkAppColors.labelNormal,
+      decoration: TextDecoration.none,
+    ),
+    labelMedium: AppTypography.labelMedium.copyWith(
+      color: _darkAppColors.labelNormal,
+      decoration: TextDecoration.none,
+    ),
+    labelRegular: AppTypography.labelRegular.copyWith(
+      color: _darkAppColors.labelNormal,
+      decoration: TextDecoration.none,
+    ),
+    captionBold: AppTypography.captionBold.copyWith(
+      color: _darkAppColors.labelNormal,
+      decoration: TextDecoration.none,
+    ),
+    captionMedium: AppTypography.captionMedium.copyWith(
+      color: _darkAppColors.labelNormal,
+      decoration: TextDecoration.none,
+    ),
+    captionRegular: AppTypography.captionRegular.copyWith(
+      color: _darkAppColors.labelNormal,
+      decoration: TextDecoration.none,
+    ),
   );
 
   static final _darkAppShadow = AppShadowExtension(

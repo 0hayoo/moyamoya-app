@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:moyamoya/designsystem/component/checkbox.dart';
+import 'package:moyamoya/designsystem/component/dialog.dart';
 import 'package:moyamoya/designsystem/component/radio.dart';
 import 'package:moyamoya/designsystem/component/text_field.dart';
 import 'package:moyamoya/designsystem/component/text_radio.dart';
@@ -83,7 +84,18 @@ class _MyHomePageState extends State<MyHomePage> {
         appBarType: TopAppBarType.small,
         actionItems: [
           TopAppBarActionItem(icon: MoyaMoyaIcons.addline, onPressed: () {}),
-          TopAppBarActionItem(icon: MoyaMoyaIcons.person, onPressed: () {}),
+          TopAppBarActionItem(
+              icon: MoyaMoyaIcons.person,
+              onPressed: () {
+                showMoyaMoyaDialog(
+                    context: context,
+                    title: "title",
+                    content: "content",
+                    dialogType: DialogType.twoButton,
+                    onClosePressed: () {
+                      Navigator.pop(context);
+                    });
+              }),
         ],
       ),
       body: Center(
