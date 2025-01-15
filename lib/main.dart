@@ -4,7 +4,9 @@ import 'package:moyamoya/designsystem/component/radio.dart';
 import 'package:moyamoya/designsystem/component/text_field.dart';
 import 'package:moyamoya/designsystem/component/text_radio.dart';
 import 'package:moyamoya/designsystem/component/toggle.dart';
+import 'package:moyamoya/designsystem/component/top_app_bar.dart';
 import 'package:moyamoya/designsystem/foundation/app_theme.dart';
+import 'package:moyamoya/designsystem/foundation/moya_moya_icons_icons.dart';
 import 'package:provider/provider.dart';
 
 import 'designsystem/component/avatar.dart';
@@ -76,9 +78,13 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: context.colors.backgroundNormal,
-      appBar: AppBar(
-        backgroundColor: context.colors.backgroundNormal,
-        title: Text(widget.title),
+      appBar: MoyaMoyaTopAppBar(
+        title: "제목",
+        appBarType: TopAppBarType.small,
+        actionItems: [
+          TopAppBarActionItem(icon: MoyaMoyaIcons.addline, onPressed: () {}),
+          TopAppBarActionItem(icon: MoyaMoyaIcons.person, onPressed: () {}),
+        ],
       ),
       body: Center(
         child: Column(

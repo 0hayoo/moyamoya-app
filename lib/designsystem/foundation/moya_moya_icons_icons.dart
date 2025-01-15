@@ -26,4 +26,7 @@ class MoyaMoyaIcons {
   static const IconData out = IconData(0xe803, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData magnifyingglass = IconData(0xe804, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData person = IconData(0xe805, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData chevron_left = IconData(0xe806, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData topperson = IconData(0xe807, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData addline = IconData(0xe808, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }

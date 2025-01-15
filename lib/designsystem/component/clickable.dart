@@ -5,8 +5,8 @@ import 'package:smooth_corner/smooth_corner.dart';
 class MoyaMoyaClickable extends StatefulWidget {
   const MoyaMoyaClickable({
     super.key,
-    required this.child,
     required this.onPressed,
+    required this.child,
     this.isEnabled = true,
     this.borderRadius,
   });
