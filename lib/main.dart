@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:moyamoya/designsystem/component/checkbox.dart';
+import 'package:moyamoya/designsystem/component/radio.dart';
 import 'package:moyamoya/designsystem/component/text_field.dart';
+import 'package:moyamoya/designsystem/component/text_radio.dart';
 import 'package:moyamoya/designsystem/component/toggle.dart';
 import 'package:moyamoya/designsystem/foundation/app_theme.dart';
 import 'package:provider/provider.dart';
@@ -71,8 +73,9 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: context.colors.backgroundNormal,
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        backgroundColor: context.colors.backgroundNormal,
         title: Text(widget.title),
       ),
       body: Center(
@@ -109,6 +112,22 @@ class _MyHomePageState extends State<MyHomePage> {
             MoyaMoyaCheckbox(
               isChecked: _isChecked,
               onChanged: _changeIsChecked,
+            ),
+            MoyaMoyaRadio(
+              isChecked: _isChecked,
+              onChanged: _changeIsChecked,
+            ),
+            MoyaMoyaTextRadio(
+              text: "사과나무",
+              isChecked: _isChecked,
+              onChanged: _changeIsChecked,
+              radioSize: TextRadioSize.small,
+            ),
+            MoyaMoyaTextRadio(
+              text: "사과나무",
+              isChecked: _isChecked,
+              onChanged: _changeIsChecked,
+              radioSize: TextRadioSize.large,
             ),
             // child: MoyaMoyaButton(
             //   text: "Hello",
