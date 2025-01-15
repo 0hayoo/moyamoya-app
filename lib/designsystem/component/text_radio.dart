@@ -82,12 +82,7 @@ class _MoyaMoyaTextRadioState extends State<MoyaMoyaTextRadio> {
         Align(
           alignment: Alignment.centerRight,
           child: Padding(
-            padding: EdgeInsets.fromLTRB(
-              0,
-              0,
-              24,
-              0,
-            ),
+            padding: EdgeInsets.only(right: 24),
             child: Icon(
               MoyaMoyaIcons.lefticon,
               size: 16,

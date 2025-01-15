@@ -7,6 +7,8 @@ import 'package:moyamoya/designsystem/component/toggle.dart';
 import 'package:moyamoya/designsystem/foundation/app_theme.dart';
 import 'package:provider/provider.dart';
 
+import 'designsystem/component/avatar.dart';
+
 void main() {
   runApp(const MoyaMoyaApp());
 }
@@ -129,6 +131,17 @@ class _MyHomePageState extends State<MyHomePage> {
               onChanged: _changeIsChecked,
               radioSize: TextRadioSize.large,
             ),
+            Row(
+              children: [
+                MoyaMoyaAvatar(
+                  avatarSize: AvatarSize.medium,
+                ),
+                MoyaMoyaAvatar(
+                  avatarSize: AvatarSize.medium,
+                  image: "https://picsum.photos/200/100",
+                ),
+              ],
+            )
             // child: MoyaMoyaButton(
             //   text: "Hello",
             //   buttonSize: ButtonSize.small,
