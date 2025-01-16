@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:moyamoya/designsystem/component/bottom_sheet.dart';
 import 'package:moyamoya/designsystem/component/checkbox.dart';
 import 'package:moyamoya/designsystem/component/dialog.dart';
 import 'package:moyamoya/designsystem/component/radio.dart';
@@ -83,19 +84,50 @@ class _MyHomePageState extends State<MyHomePage> {
         title: "제목",
         appBarType: TopAppBarType.small,
         actionItems: [
-          TopAppBarActionItem(icon: MoyaMoyaIcons.addline, onPressed: () {}),
           TopAppBarActionItem(
-              icon: MoyaMoyaIcons.person,
-              onPressed: () {
-                showMoyaMoyaDialog(
-                    context: context,
-                    title: "title",
-                    content: "content",
-                    dialogType: DialogType.twoButton,
-                    onClosePressed: () {
-                      Navigator.pop(context);
-                    });
-              }),
+            icon: MoyaMoyaIcons.addline,
+            onPressed: () {
+              showMoyaMoyaBottomSheet(
+                context: this.context,
+                builder: (context) {
+                  return Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "회원가입을 하기 위해 동의가 필요해요",
+                        style: context.typography.heading2Bold.copyWith(
+                          color: context.colors.labelNormal,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 8,
+                      ),
+                      Text(
+                        "모야모야에 가입하기 위해 서비스 이용약관과 개인정보처리방침 동의가 필요해요",
+                        style: context.typography.bodyMedium.copyWith(
+                          color: context.colors.labelAlternative,
+                        ),
+                      ),
+                    ],
+                  );
+                },
+              );
+            },
+          ),
+          TopAppBarActionItem(
+            icon: MoyaMoyaIcons.person,
+            onPressed: () {
+              showMoyaMoyaDialog(
+                  context: context,
+                  title: "title",
+                  content: "content",
+                  dialogType: DialogType.twoButton,
+                  onClosePressed: () {
+                    Navigator.pop(context);
+                  });
+            },
+          ),
         ],
       ),
       body: Center(
