@@ -37,6 +37,7 @@ dependencies:
   provider: ^6.1.2
   smooth_corner: ^1.1.1
   get: ^4.6.6
+  url_launcher: ^6.3.1
 
 dev_dependencies:
   flutter_test:

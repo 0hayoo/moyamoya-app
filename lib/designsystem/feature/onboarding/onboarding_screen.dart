@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:moyamoya/designsystem/component/button.dart';
 import 'package:moyamoya/designsystem/foundation/app_theme.dart';
 
-class OnboardingScreen extends StatefulWidget {
+class OnboardingScreen extends StatelessWidget {
   const OnboardingScreen({
     super.key,
     required this.navigateToSignUp,
@@ -10,11 +10,6 @@ class OnboardingScreen extends StatefulWidget {
 
   final VoidCallback navigateToSignUp;
 
-  @override
-  State<OnboardingScreen> createState() => _OnboardingScreenState();
-}
-
-class _OnboardingScreenState extends State<OnboardingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,7 +31,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     text: "시작하기",
                     buttonSize: ButtonSize.larger,
                     buttonType: ButtonType.assistive,
-                    onPressed: widget.navigateToSignUp,
+                    onPressed: navigateToSignUp,
                     rounded: true,
                   ),
                 ),

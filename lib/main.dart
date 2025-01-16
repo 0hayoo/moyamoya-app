@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:moyamoya/designsystem/feature/onboarding/navigation/onbaording_navigation.dart';
+import 'package:moyamoya/designsystem/feature/signup/inputtel/navigation/sign_up_input_tel_navigation.dart';
 import 'package:moyamoya/designsystem/foundation/app_theme.dart';
 import 'package:provider/provider.dart';
 
@@ -24,8 +25,15 @@ class MoyaMoyaApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         getPages: [
           onboardingScreen(
-            navigateToSignUp: () {},
+            navigateToSignUp: navigateToSignUpInputTelScreen,
           ),
+          signUpInputTelScreen(
+            popBackStack: Get.back,
+            navigateToSignUpAuthTel: () {},
+            navigateToSignIn: () {
+              print("로그인 화면");
+            },
+          )
         ],
       ),
     );
