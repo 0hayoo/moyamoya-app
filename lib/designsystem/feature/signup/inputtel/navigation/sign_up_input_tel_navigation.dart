@@ -5,17 +5,20 @@ import 'package:moyamoya/designsystem/feature/signup/inputtel/sign_up_input_tel_
 
 const signUpInputTelRoute = "/signupinputel";
 
+typedef NavigateToSignUpAuthTel = void Function(String);
+
 GetPage<SignUpInputTelScreen> signUpInputTelScreen({
   required VoidCallback popBackStack,
-  required VoidCallback navigateToSignUpAuthTel,
+  required NavigateToSignUpAuthTel navigateToSignUpAuthTel,
   required VoidCallback navigateToSignIn,
 }) =>
     GetPage(
       name: signUpInputTelRoute,
       page: () => SignUpInputTelScreen(
-          popBackStack: popBackStack,
-          navigateToSignUpAuthTel: navigateToSignUpAuthTel,
-          navigateToSignIn: navigateToSignIn),
+        popBackStack: popBackStack,
+        navigateToSignUpAuthTel: navigateToSignUpAuthTel,
+        navigateToSignIn: navigateToSignIn,
+      ),
     );
 
 void navigateToSignUpInputTelScreen() => Get.toNamed(signUpInputTelRoute);

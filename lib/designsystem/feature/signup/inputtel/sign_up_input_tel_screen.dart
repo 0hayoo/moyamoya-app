@@ -4,6 +4,7 @@ import 'package:moyamoya/designsystem/component/button.dart';
 import 'package:moyamoya/designsystem/component/centered_text_field.dart';
 import 'package:moyamoya/designsystem/component/clickable.dart';
 import 'package:moyamoya/designsystem/component/top_app_bar.dart';
+import 'package:moyamoya/designsystem/feature/signup/inputtel/navigation/sign_up_input_tel_navigation.dart';
 import 'package:moyamoya/designsystem/foundation/app_theme.dart';
 import 'package:moyamoya/designsystem/foundation/moya_moya_icons_icons.dart';
 import 'package:smooth_corner/smooth_corner.dart';
@@ -18,7 +19,7 @@ class SignUpInputTelScreen extends StatefulWidget {
   });
 
   final VoidCallback popBackStack;
-  final VoidCallback navigateToSignUpAuthTel;
+  final NavigateToSignUpAuthTel navigateToSignUpAuthTel;
   final VoidCallback navigateToSignIn;
 
   @override
@@ -151,12 +152,7 @@ class _SignUpInputTelScreenState extends State<SignUpInputTelScreen> {
         ),
         MoyaMoyaClickable(
           onPressed: () {
-            bool value;
-            if (_isAgreeToTerms && _isPrivacyPolicyAccepted) {
-              value = false;
-            } else {
-              value = true;
-            }
+            bool value = !(_isAgreeToTerms && _isPrivacyPolicyAccepted);
             setState(() {
               _isAgreeToTerms = value;
               _isPrivacyPolicyAccepted = value;
@@ -227,7 +223,9 @@ class _SignUpInputTelScreenState extends State<SignUpInputTelScreen> {
           text: "다음",
           buttonSize: ButtonSize.larger,
           buttonType: ButtonType.primary,
-          onPressed: widget.navigateToSignUpAuthTel,
+          onPressed: () {
+            widget.navigateToSignUpAuthTel(_telTextEditingController.text);
+          },
         )
       ],
     );

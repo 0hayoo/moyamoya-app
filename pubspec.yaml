@@ -37,7 +37,13 @@ dependencies:
   provider: ^6.1.2
   smooth_corner: ^1.1.1
   get: ^4.6.6
+  get_it: ^8.0.3
   url_launcher: ^6.3.1
+  dio: ^5.7.0
+  flutter_dotenv: ^5.2.1
+  json_serializable: ^6.9.3
+  json_annotation: ^4.9.0
+  injectable: ^2.5.0
 
 dev_dependencies:
   flutter_test:
@@ -49,6 +55,8 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^5.0.0
+  build_runner: ^2.0.0
+  injectable_generator: ^2.5.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -77,6 +85,10 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
+
+  assets:
+    - assets/config/.env
+
   fonts:
     - family: MoyaMoyaIcons
       fonts:
