@@ -5,7 +5,10 @@ import 'package:moyamoya/designsystem/foundation/app_theme.dart';
 import 'package:moyamoya/feature/onboarding/navigation/onbaording_navigation.dart';
 import 'package:moyamoya/feature/signup/authtel/navigation/sign_up_auth_tel_navigation.dart';
 import 'package:moyamoya/feature/signup/inputtel/navigation/sign_up_input_tel_navigation.dart';
+import 'package:moyamoya/feature/signup/retrieveschool/navigation/sign_up_retrieve_school_navigation.dart';
 import 'package:moyamoya/injectable_config.dart';
+import 'package:moyamoya/network/school/datasource/school_data_source_impl.dart';
+import 'package:moyamoya/network/school/school_data_source.dart';
 import 'package:moyamoya/network/user/datasource/user_data_source_impl.dart';
 import 'package:moyamoya/network/user/user_data_source.dart';
 import 'package:provider/provider.dart';
@@ -13,6 +16,7 @@ import 'package:provider/provider.dart';
 void main() async {
   await dotenv.load(fileName: 'assets/config/.env');
   Get.put<UserDataSource>(UserDataSourceImpl());
+  Get.put<SchoolDataSource>(SchoolDataSourceImpl());
   configureDependencies();
 
   runApp(const MoyaMoyaApp());
@@ -26,7 +30,7 @@ class MoyaMoyaApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (_) => AppTheme(),
       builder: (context, _) => GetMaterialApp(
-        initialRoute: onboardingRoute,
+        initialRoute: signUpRetrieveSchoolRoute,
         title: "Flutter Demo",
         theme: AppTheme.light,
         darkTheme: AppTheme.dark,
@@ -47,7 +51,10 @@ class MoyaMoyaApp extends StatelessWidget {
           ),
           signUpAuthTelScreen(
             popBackStack: Get.back,
-          )
+          ),
+          signUpRetrieveSchoolScreen(
+            popBackStack: Get.back,
+          ),
         ],
       ),
     );

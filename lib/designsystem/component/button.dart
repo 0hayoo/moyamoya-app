@@ -43,6 +43,7 @@ class _MoyaMoyaButtonState extends State<MoyaMoyaButton> {
 
   @override
   Widget build(BuildContext context) {
+    final backgroundColor = _getBackgroundColor(context);
     return GestureDetector(
       onTap: widget.isEnabled ? widget.onPressed : () {},
       onTapDown: (_) => _updateScale(0.95), // 누를 때 축소
@@ -57,8 +58,9 @@ class _MoyaMoyaButtonState extends State<MoyaMoyaButton> {
             alignment: Alignment.center,
             padding: _getPadding(),
             decoration: ShapeDecoration(
-              color: _getBackgroundColor(context)
-                  .withValues(alpha: widget.isEnabled ? 1 : 0.4),
+              color: widget.isEnabled
+                  ? backgroundColor
+                  : backgroundColor.withValues(alpha: 0.4),
               shape: SmoothRectangleBorder(
                 borderRadius:
                     widget.rounded ? BorderRadius.circular(99) : _getRadius(),
