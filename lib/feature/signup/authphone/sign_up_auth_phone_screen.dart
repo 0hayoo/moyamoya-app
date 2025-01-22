@@ -5,10 +5,10 @@ import 'package:moyamoya/designsystem/component/button.dart';
 import 'package:moyamoya/designsystem/component/centered_text_field.dart';
 import 'package:moyamoya/designsystem/component/top_app_bar.dart';
 import 'package:moyamoya/designsystem/foundation/app_theme.dart';
-import 'package:moyamoya/feature/signup/authtel/viewmodel/sign_up_auth_tel_viewmodel.dart';
+import 'package:moyamoya/feature/signup/authphone/viewmodel/sign_up_auth_phone_viewmodel.dart';
 
-class SignUpAuthTelScreen extends StatefulWidget {
-  SignUpAuthTelScreen({
+class SignUpAuthPhoneScreen extends StatefulWidget {
+  SignUpAuthPhoneScreen({
     super.key,
     required this.popBackStack,
   });
@@ -17,11 +17,11 @@ class SignUpAuthTelScreen extends StatefulWidget {
   final String tel = Get.parameters["tel"] ?? "";
 
   @override
-  State<SignUpAuthTelScreen> createState() => _SignUpAuthTelScreenState();
+  State<SignUpAuthPhoneScreen> createState() => _SignUpAuthPhoneScreenState();
 }
 
-class _SignUpAuthTelScreenState extends State<SignUpAuthTelScreen> {
-  final SignUpAuthTelViewModel viewModel = Get.put(SignUpAuthTelViewModel(
+class _SignUpAuthPhoneScreenState extends State<SignUpAuthPhoneScreen> {
+  final SignUpAuthPhoneViewModel viewModel = Get.put(SignUpAuthPhoneViewModel(
     onVerifySuccess: () {
       debugPrint("onVerifySuccess");
     },

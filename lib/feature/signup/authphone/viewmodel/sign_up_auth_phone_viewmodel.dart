@@ -3,8 +3,8 @@ import 'package:moyamoya/domain/model/user_verify.dart';
 import 'package:moyamoya/network/core/model/result.dart';
 import 'package:moyamoya/network/user/user_data_source.dart';
 
-class SignUpAuthTelViewModel extends GetxController {
-  SignUpAuthTelViewModel({
+class SignUpAuthPhoneViewModel extends GetxController {
+  SignUpAuthPhoneViewModel({
     required this.onVerifySuccess,
   });
 

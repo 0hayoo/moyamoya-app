@@ -3,11 +3,11 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get/get.dart';
 import 'package:moyamoya/designsystem/foundation/app_theme.dart';
 import 'package:moyamoya/feature/onboarding/navigation/onbaording_navigation.dart';
-import 'package:moyamoya/feature/signup/authtel/navigation/sign_up_auth_tel_navigation.dart';
+import 'package:moyamoya/feature/signup/authphone/navigation/sign_up_auth_phone_navigation.dart';
 import 'package:moyamoya/feature/signup/inputgender/navigation/sign_up_input_gender_navigation.dart';
+import 'package:moyamoya/feature/signup/inputphone/navigation/sign_up_input_phone_navigation.dart';
 import 'package:moyamoya/feature/signup/inputprofile/navigation/sign_up_input_profile_navigation.dart';
 import 'package:moyamoya/feature/signup/inputschool/navigation/sign_up_input_school_navigation.dart';
-import 'package:moyamoya/feature/signup/inputtel/navigation/sign_up_input_tel_navigation.dart';
 import 'package:moyamoya/feature/signup/retrieveschool/navigation/sign_up_retrieve_school_navigation.dart';
 import 'package:moyamoya/injectable_config.dart';
 import 'package:moyamoya/network/school/datasource/school_data_source_impl.dart';
@@ -41,18 +41,18 @@ class MoyaMoyaApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         getPages: [
           onboardingScreen(
-            navigateToSignUp: navigateToSignUpInputTelScreen,
+            navigateToSignUp: navigateToSignUpInputPhoneScreen,
           ),
-          signUpInputTelScreen(
+          signUpInputPhoneScreen(
             popBackStack: Get.back,
             navigateToSignUpAuthTel: (tel) {
-              navigateToSignUpAuthTelScreen(tel: tel);
+              navigateToSignUpAuthPhoneScreen(tel: tel);
             },
             navigateToSignIn: () {
               print("로그인 화면");
             },
           ),
-          signUpAuthTelScreen(
+          signUpAuthPhoneScreen(
             popBackStack: Get.back,
           ),
           signUpRetrieveSchoolScreen(

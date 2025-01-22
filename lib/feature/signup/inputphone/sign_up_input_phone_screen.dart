@@ -6,12 +6,12 @@ import 'package:moyamoya/designsystem/component/clickable.dart';
 import 'package:moyamoya/designsystem/component/top_app_bar.dart';
 import 'package:moyamoya/designsystem/foundation/app_theme.dart';
 import 'package:moyamoya/designsystem/foundation/moya_moya_icons_icons.dart';
-import 'package:moyamoya/feature/signup/inputtel/navigation/sign_up_input_tel_navigation.dart';
+import 'package:moyamoya/feature/signup/inputphone/navigation/sign_up_input_phone_navigation.dart';
 import 'package:smooth_corner/smooth_corner.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class SignUpInputTelScreen extends StatefulWidget {
-  const SignUpInputTelScreen({
+class SignUpInputPhoneScreen extends StatefulWidget {
+  const SignUpInputPhoneScreen({
     super.key,
     required this.popBackStack,
     required this.navigateToSignUpAuthTel,
@@ -23,10 +23,10 @@ class SignUpInputTelScreen extends StatefulWidget {
   final VoidCallback navigateToSignIn;
 
   @override
-  State<SignUpInputTelScreen> createState() => _SignUpInputTelScreenState();
+  State<SignUpInputPhoneScreen> createState() => _SignUpInputPhoneScreenState();
 }
 
-class _SignUpInputTelScreenState extends State<SignUpInputTelScreen> {
+class _SignUpInputPhoneScreenState extends State<SignUpInputPhoneScreen> {
   final _telTextEditingController = TextEditingController();
 
   bool _isPrivacyPolicyAccepted = false;
