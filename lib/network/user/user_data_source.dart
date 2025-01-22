@@ -14,4 +14,9 @@ interface class UserDataSource {
     // TODO: implement verifyCode
     throw UnimplementedError('verifyCode is not implemented yet.');
   }
+
+  Future<Result<List<String>>> availableProfiles() async {
+    // TODO: implement verifyCode
+    throw UnimplementedError('verifyCode is not implemented yet.');
+  }
 }

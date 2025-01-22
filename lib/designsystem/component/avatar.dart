@@ -3,6 +3,7 @@ import 'package:moyamoya/designsystem/foundation/app_theme.dart';
 import 'package:moyamoya/designsystem/foundation/moya_moya_icons_icons.dart';
 
 enum AvatarSize {
+  xxl,
   larger,
   large,
   medium,
@@ -53,6 +54,7 @@ class MoyaMoyaAvatar extends StatelessWidget {
   }
 
   double _getContainerSize() => switch (avatarSize) {
+        AvatarSize.xxl => 150,
         AvatarSize.larger => 64,
         AvatarSize.large => 42,
         AvatarSize.medium => 32,

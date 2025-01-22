@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:moyamoya/designsystem/foundation/app_theme.dart';
 import 'package:moyamoya/feature/onboarding/navigation/onbaording_navigation.dart';
 import 'package:moyamoya/feature/signup/authtel/navigation/sign_up_auth_tel_navigation.dart';
+import 'package:moyamoya/feature/signup/inputprofile/navigation/sign_up_input_profile_navigation.dart';
 import 'package:moyamoya/feature/signup/inputschool/navigation/sign_up_input_school_navigation.dart';
 import 'package:moyamoya/feature/signup/inputtel/navigation/sign_up_input_tel_navigation.dart';
 import 'package:moyamoya/feature/signup/retrieveschool/navigation/sign_up_retrieve_school_navigation.dart';
@@ -31,7 +32,7 @@ class MoyaMoyaApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (_) => AppTheme(),
       builder: (context, _) => GetMaterialApp(
-        initialRoute: signUpInputSchoolRoute,
+        initialRoute: signUpInputProfileRoute,
         title: "Flutter Demo",
         theme: AppTheme.light,
         darkTheme: AppTheme.dark,
@@ -57,6 +58,9 @@ class MoyaMoyaApp extends StatelessWidget {
             popBackStack: Get.back,
           ),
           signUpInputSchoolScreen(
+            popBackStack: Get.back,
+          ),
+          signUpInputProfileScreen(
             popBackStack: Get.back,
           ),
         ],
