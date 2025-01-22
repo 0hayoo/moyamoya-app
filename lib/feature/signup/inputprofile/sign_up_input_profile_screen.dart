@@ -78,6 +78,7 @@ class _SignUpInputProfileScreenState extends State<SignUpInputProfileScreen> {
                     children: [
                       MoyaMoyaAvatar(
                         avatarSize: AvatarSize.xxl,
+                        image: _selectedImage,
                       ),
                       Container(
                         width: double.infinity,

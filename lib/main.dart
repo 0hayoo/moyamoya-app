@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:moyamoya/designsystem/foundation/app_theme.dart';
 import 'package:moyamoya/feature/onboarding/navigation/onbaording_navigation.dart';
 import 'package:moyamoya/feature/signup/authphone/navigation/sign_up_auth_phone_navigation.dart';
+import 'package:moyamoya/feature/signup/finalcheck/navigation/sign_up_final_check_navigation.dart';
 import 'package:moyamoya/feature/signup/inputgender/navigation/sign_up_input_gender_navigation.dart';
 import 'package:moyamoya/feature/signup/inputphone/navigation/sign_up_input_phone_navigation.dart';
 import 'package:moyamoya/feature/signup/inputprofile/navigation/sign_up_input_profile_navigation.dart';
@@ -33,7 +34,7 @@ class MoyaMoyaApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (_) => AppTheme(),
       builder: (context, _) => GetMaterialApp(
-        initialRoute: signUpInputGenderRoute,
+        initialRoute: signUpFinalCheckRoute,
         title: "Flutter Demo",
         theme: AppTheme.light,
         darkTheme: AppTheme.dark,
@@ -65,6 +66,9 @@ class MoyaMoyaApp extends StatelessWidget {
             popBackStack: Get.back,
           ),
           signUpInputGenderScreen(
+            popBackStack: Get.back,
+          ),
+          signUpFinalCheckScreen(
             popBackStack: Get.back,
           ),
         ],
