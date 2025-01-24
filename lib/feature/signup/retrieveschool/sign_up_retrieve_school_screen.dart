@@ -10,12 +10,23 @@ import 'package:moyamoya/feature/signup/retrieveschool/item/sign_up_retrieve_sch
 import 'package:moyamoya/feature/signup/retrieveschool/viewmodel/sign_up_retrieve_school_viewmodel.dart';
 
 class SignUpRetrieveSchoolScreen extends StatefulWidget {
-  const SignUpRetrieveSchoolScreen({
+  SignUpRetrieveSchoolScreen({
     super.key,
     required this.popBackStack,
+    required this.navigateToSignUpInputSchoolInfoScreen,
   });
 
+  final Function(
+    String phone,
+    String verifyCode,
+    int schoolId,
+    String schoolName,
+    String schoolType,
+  ) navigateToSignUpInputSchoolInfoScreen;
   final VoidCallback popBackStack;
+
+  final String phone = Get.parameters["phone"] ?? "";
+  final String verifyCode = Get.parameters["verifyCode"] ?? "";
 
   @override
   State<SignUpRetrieveSchoolScreen> createState() =>
@@ -100,10 +111,16 @@ class _SignUpRetrieveSchoolScreenState
                             BuildContext context,
                             Function setState,
                           ) {
-                            return _buildBottomSheet(
-                              context,
-                              _viewModel.filterSchools[index],
-                            );
+                            final item = _viewModel.filterSchools[index];
+                            return _buildBottomSheet(context, item, () {
+                              widget.navigateToSignUpInputSchoolInfoScreen(
+                                widget.phone,
+                                widget.verifyCode,
+                                item.id,
+                                item.name,
+                                item.type!.name,
+                              );
+                            });
                           },
                         );
                       },
@@ -132,6 +149,7 @@ class _SignUpRetrieveSchoolScreenState
   Widget _buildBottomSheet(
     BuildContext context,
     School school,
+    VoidCallback onPressed,
   ) {
     final address = (school.address ?? "").split(" ");
     final localName =
@@ -182,7 +200,9 @@ class _SignUpRetrieveSchoolScreenState
                 text: "취소",
                 buttonSize: ButtonSize.larger,
                 buttonType: ButtonType.secondary,
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pop(context);
+                },
               ),
             ),
             SizedBox(
@@ -194,7 +214,7 @@ class _SignUpRetrieveSchoolScreenState
                 text: "네, 저희 학교에요",
                 buttonSize: ButtonSize.larger,
                 buttonType: ButtonType.primary,
-                onPressed: () {},
+                onPressed: onPressed,
               ),
             ),
           ],

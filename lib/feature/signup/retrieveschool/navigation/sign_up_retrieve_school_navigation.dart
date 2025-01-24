@@ -7,11 +7,31 @@ const signUpRetrieveSchoolRoute = "/signupretrieveschoolroute";
 
 GetPage<SignUpRetrieveSchoolScreen> signUpRetrieveSchoolScreen({
   required VoidCallback popBackStack,
+  required Function(
+    String phone,
+    String verifyCode,
+    int schoolId,
+    String schoolName,
+    String schoolType,
+  ) navigateToSignUpInputSchoolInfoScreen,
 }) =>
     GetPage(
       name: signUpRetrieveSchoolRoute,
-      page: () => SignUpRetrieveSchoolScreen(popBackStack: popBackStack),
+      page: () => SignUpRetrieveSchoolScreen(
+        popBackStack: popBackStack,
+        navigateToSignUpInputSchoolInfoScreen:
+            navigateToSignUpInputSchoolInfoScreen,
+      ),
     );
 
-void navigateToSignUpRetrieveSchoolScreen() =>
-    Get.toNamed(signUpRetrieveSchoolRoute);
+void navigateToSignUpRetrieveSchoolScreen({
+  required String phone,
+  required String verifyCode,
+}) =>
+    Get.toNamed(
+      signUpRetrieveSchoolRoute,
+      parameters: {
+        "phone": phone,
+        "verifyCode": verifyCode,
+      },
+    );

@@ -26,16 +26,16 @@ class SignUpAuthPhoneViewModel extends GetxController {
     return true;
   }
 
-  Future<bool> verifyCode(String phone, String code) async {
+  Future<bool?> verifyCode(String phone, String code) async {
     isLoading.value = true;
     final result = await userDataSource.verifyCode(phone, code);
+    isLoading.value = false;
     switch (result) {
       case Success<UserVerify>():
-        onVerifySuccess();
+        return result.data.isNewUser;
       case Error<UserVerify>():
-        Get.snackbar("Error", result.error.toString());
+        return null;
     }
-    isLoading.value = false;
-    return true;
+    // return true;
   }
 }

@@ -7,18 +7,22 @@ const signUpAuthPhoneRoute = "/signupauthtel";
 
 GetPage<SignUpAuthPhoneScreen> signUpAuthPhoneScreen({
   required VoidCallback popBackStack,
+  required Function(String phone, String authCode)
+      navigateToSignUpRetrieveSchoolScreen,
 }) =>
     GetPage(
       name: signUpAuthPhoneRoute,
       page: () => SignUpAuthPhoneScreen(
         popBackStack: popBackStack,
+        navigateToSignUpRetrieveSchoolScreen:
+            navigateToSignUpRetrieveSchoolScreen,
       ),
     );
 
 void navigateToSignUpAuthPhoneScreen({
-  required String tel,
+  required String phone,
 }) =>
     Get.toNamed(
       signUpAuthPhoneRoute,
-      parameters: {"tel": tel},
+      parameters: {"phone": phone},
     );

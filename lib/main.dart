@@ -8,7 +8,7 @@ import 'package:moyamoya/feature/signup/finalcheck/navigation/sign_up_final_chec
 import 'package:moyamoya/feature/signup/inputgender/navigation/sign_up_input_gender_navigation.dart';
 import 'package:moyamoya/feature/signup/inputphone/navigation/sign_up_input_phone_navigation.dart';
 import 'package:moyamoya/feature/signup/inputprofile/navigation/sign_up_input_profile_navigation.dart';
-import 'package:moyamoya/feature/signup/inputschool/navigation/sign_up_input_school_navigation.dart';
+import 'package:moyamoya/feature/signup/inputschoolinfo/navigation/sign_up_input_school_info_navigation.dart';
 import 'package:moyamoya/feature/signup/retrieveschool/navigation/sign_up_retrieve_school_navigation.dart';
 import 'package:moyamoya/injectable_config.dart';
 import 'package:moyamoya/network/school/datasource/school_data_source_impl.dart';
@@ -34,7 +34,7 @@ class MoyaMoyaApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (_) => AppTheme(),
       builder: (context, _) => GetMaterialApp(
-        initialRoute: signUpFinalCheckRoute,
+        initialRoute: onboardingRoute,
         title: "Flutter Demo",
         theme: AppTheme.light,
         darkTheme: AppTheme.dark,
@@ -47,26 +47,113 @@ class MoyaMoyaApp extends StatelessWidget {
           signUpInputPhoneScreen(
             popBackStack: Get.back,
             navigateToSignUpAuthTel: (tel) {
-              navigateToSignUpAuthPhoneScreen(tel: tel);
+              navigateToSignUpAuthPhoneScreen(phone: tel);
             },
             navigateToSignIn: () {
               print("로그인 화면");
             },
           ),
           signUpAuthPhoneScreen(
-            popBackStack: Get.back,
-          ),
+              popBackStack: Get.back,
+              navigateToSignUpRetrieveSchoolScreen: (phone, verifyCode) {
+                navigateToSignUpRetrieveSchoolScreen(
+                  phone: phone,
+                  verifyCode: verifyCode,
+                );
+              }),
           signUpRetrieveSchoolScreen(
             popBackStack: Get.back,
+            navigateToSignUpInputSchoolInfoScreen: (
+              phone,
+              verifyCode,
+              schoolId,
+              schoolName,
+              schoolType,
+            ) {
+              navigateToSignUpInputSchoolInfoScreen(
+                phone: phone,
+                verifyCode: verifyCode,
+                schoolId: schoolId,
+                schoolName: schoolName,
+                schoolType: schoolType,
+              );
+            },
           ),
-          signUpInputSchoolScreen(
+          signUpInputSchoolInfoScreen(
             popBackStack: Get.back,
+            navigateToSignUpInputProfileScreen: (
+              phone,
+              verifyCode,
+              schoolId,
+              schoolName,
+              schoolType,
+              schoolGrade,
+              schoolClass,
+            ) {
+              navigateToSignUpInputProfileScreen(
+                phone: phone,
+                verifyCode: verifyCode,
+                schoolId: schoolId,
+                schoolName: schoolName,
+                schoolType: schoolType,
+                schoolGrade: schoolGrade,
+                schoolClass: schoolClass,
+              );
+            },
           ),
           signUpInputProfileScreen(
             popBackStack: Get.back,
+            navigateToSignUpInputGenderScreen: (
+              phone,
+              verifyCode,
+              schoolId,
+              schoolName,
+              schoolType,
+              schoolGrade,
+              schoolClass,
+              name,
+              profileImageUrl,
+            ) {
+              navigateToSignUpInputGenderScreen(
+                phone: phone,
+                verifyCode: verifyCode,
+                schoolId: schoolId,
+                schoolName: schoolName,
+                schoolType: schoolType,
+                schoolGrade: schoolGrade,
+                schoolClass: schoolClass,
+                name: name,
+                profileImageUrl: profileImageUrl,
+              );
+            },
           ),
           signUpInputGenderScreen(
             popBackStack: Get.back,
+            navigateToSignUpFinalCheckScreen: (
+              phone,
+              verifyCode,
+              schoolId,
+              schoolName,
+              schoolType,
+              schoolGrade,
+              schoolClass,
+              name,
+              profileImageUrl,
+              gender,
+            ) {
+              navigateToSignUpFinalCheck(
+                phone: phone,
+                verifyCode: verifyCode,
+                schoolId: schoolId,
+                schoolName: schoolName,
+                schoolType: schoolType,
+                schoolGrade: schoolGrade,
+                schoolClass: schoolClass,
+                name: name,
+                profileImageUrl: profileImageUrl,
+                gender: gender,
+              );
+            },
           ),
           signUpFinalCheckScreen(
             popBackStack: Get.back,

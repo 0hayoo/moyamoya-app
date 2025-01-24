@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:moyamoya/designsystem/component/bottom_sheet.dart';
 import 'package:moyamoya/designsystem/component/button.dart';
 import 'package:moyamoya/designsystem/component/clickable.dart';
@@ -6,22 +7,39 @@ import 'package:moyamoya/designsystem/component/top_app_bar.dart';
 import 'package:moyamoya/designsystem/foundation/app_theme.dart';
 import 'package:smooth_corner/smooth_corner.dart';
 
-class SignUpInputSchoolScreen extends StatefulWidget {
-  const SignUpInputSchoolScreen({
+class SignUpInputSchoolInfoScreen extends StatefulWidget {
+  SignUpInputSchoolInfoScreen({
     super.key,
     required this.popBackStack,
+    required this.navigateToSignUpInputProfileScreen,
   });
 
+  final Function(
+    String phone,
+    String verifyCode,
+    int schoolId,
+    String schoolName,
+    String schoolType,
+    int schoolGrade,
+    int schoolClass,
+  ) navigateToSignUpInputProfileScreen;
   final VoidCallback popBackStack;
 
+  final String phone = Get.parameters["phone"] ?? "";
+  final String verifyCode = Get.parameters["verifyCode"] ?? "";
+  final int schoolId = int.parse(Get.parameters["schoolId"] ?? "0");
+  final String schoolName = Get.parameters["schoolName"] ?? "";
+  final String schoolType = Get.parameters["schoolType"] ?? "";
+
   @override
-  State<SignUpInputSchoolScreen> createState() =>
-      _SignUpInputSchoolScreenState();
+  State<SignUpInputSchoolInfoScreen> createState() =>
+      _SignUpInputSchoolInfoScreenState();
 }
 
-class _SignUpInputSchoolScreenState extends State<SignUpInputSchoolScreen> {
-  int? grade;
-  int? room;
+class _SignUpInputSchoolInfoScreenState
+    extends State<SignUpInputSchoolInfoScreen> {
+  int? _grade;
+  int? _room;
 
   @override
   Widget build(BuildContext context) {
@@ -51,17 +69,17 @@ class _SignUpInputSchoolScreenState extends State<SignUpInputSchoolScreen> {
                 height: 32,
               ),
               _cardText(
-                text: "${grade?.toString() ?? ""}학년",
+                text: "${_grade?.toString() ?? ""}학년",
                 onPressed: () {
                   showMoyaMoyaBottomSheet(
                     context: context,
                     builder: (context, _) {
                       return _buildBottomSheet(
-                        items: [1, 2, 3, 4, 5, 6],
+                        items: _getGradeList(),
                         suffix: "학년",
                         onItemPressed: (item) {
                           setState(() {
-                            grade = item;
+                            _grade = item;
                           });
                           Navigator.pop(context);
                         },
@@ -74,17 +92,38 @@ class _SignUpInputSchoolScreenState extends State<SignUpInputSchoolScreen> {
                 height: 12,
               ),
               _cardText(
-                text: "${room?.toString() ?? ""}반",
+                text: "${_room?.toString() ?? ""}반",
                 onPressed: () {
                   showMoyaMoyaBottomSheet(
                     context: context,
                     builder: (context, _) {
                       return _buildBottomSheet(
-                        items: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+                        items: [
+                          1,
+                          2,
+                          3,
+                          4,
+                          5,
+                          6,
+                          7,
+                          8,
+                          9,
+                          10,
+                          11,
+                          12,
+                          13,
+                          14,
+                          15,
+                          16,
+                          17,
+                          18,
+                          19,
+                          20
+                        ],
                         suffix: "반",
                         onItemPressed: (item) {
                           setState(() {
-                            room = item;
+                            _room = item;
                           });
                           Navigator.pop(context);
                         },
@@ -102,7 +141,18 @@ class _SignUpInputSchoolScreenState extends State<SignUpInputSchoolScreen> {
                   text: "다음",
                   buttonSize: ButtonSize.larger,
                   buttonType: ButtonType.primary,
-                  onPressed: () {},
+                  isEnabled: _grade != null && _room != null,
+                  onPressed: () {
+                    widget.navigateToSignUpInputProfileScreen(
+                      widget.phone,
+                      widget.verifyCode,
+                      widget.schoolId,
+                      widget.schoolName,
+                      widget.schoolType,
+                      _grade!,
+                      _room!,
+                    );
+                  },
                   rounded: true,
                 ),
               ),
@@ -182,4 +232,10 @@ class _SignUpInputSchoolScreenState extends State<SignUpInputSchoolScreen> {
       ),
     );
   }
+
+  List<int> _getGradeList() => switch (widget.schoolType) {
+        "high" => [1, 2, 3],
+        "middle" => [1, 2, 3],
+        _ => [1, 2, 3, 4, 5, 6],
+      };
 }

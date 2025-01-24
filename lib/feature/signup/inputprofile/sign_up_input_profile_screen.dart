@@ -10,12 +10,32 @@ import 'package:moyamoya/designsystem/foundation/app_theme.dart';
 import 'package:moyamoya/feature/signup/inputprofile/viewmodel/sign_up_input_profile_viewmodel.dart';
 
 class SignUpInputProfileScreen extends StatefulWidget {
-  const SignUpInputProfileScreen({
+  SignUpInputProfileScreen({
     super.key,
     required this.popBackStack,
+    required this.navigateToSignUpInputGenderScreen,
   });
 
+  final Function(
+    String phone,
+    String verifyCode,
+    int schoolId,
+    String schoolName,
+    String schoolType,
+    int schoolGrade,
+    int schoolClass,
+    String name,
+    String profileImageUrl,
+  ) navigateToSignUpInputGenderScreen;
   final VoidCallback popBackStack;
+
+  final String phone = Get.parameters["phone"] ?? "";
+  final String verifyCode = Get.parameters["verifyCode"] ?? "";
+  final int schoolId = int.parse(Get.parameters["schoolId"] ?? "0");
+  final String schoolName = Get.parameters["schoolName"] ?? "";
+  final String schoolType = Get.parameters["schoolType"] ?? "";
+  final int schoolGrade = int.parse(Get.parameters["schoolGrade"] ?? "0");
+  final int schoolClass = int.parse(Get.parameters["schoolClass"] ?? "0");
 
   @override
   State<SignUpInputProfileScreen> createState() =>
@@ -32,6 +52,9 @@ class _SignUpInputProfileScreenState extends State<SignUpInputProfileScreen> {
   @override
   void initState() {
     _viewModel.getProfileImageList();
+    _nameTextController.addListener(() {
+      setState(() {});
+    });
     super.initState();
   }
 
@@ -134,7 +157,21 @@ class _SignUpInputProfileScreenState extends State<SignUpInputProfileScreen> {
                   text: "완료",
                   buttonSize: ButtonSize.larger,
                   buttonType: ButtonType.primary,
-                  onPressed: () {},
+                  isEnabled: _selectedImage != null &&
+                      _nameTextController.text.isNotEmpty,
+                  onPressed: () {
+                    widget.navigateToSignUpInputGenderScreen(
+                      widget.phone,
+                      widget.verifyCode,
+                      widget.schoolId,
+                      widget.schoolName,
+                      widget.schoolType,
+                      widget.schoolGrade,
+                      widget.schoolClass,
+                      _nameTextController.text,
+                      _selectedImage!,
+                    );
+                  },
                   rounded: true,
                 ),
               ),
@@ -243,6 +280,7 @@ class _SignUpInputProfileScreenState extends State<SignUpInputProfileScreen> {
               setBottomSheetState(() {
                 _selectedImage = _selectingImage;
               });
+              setState(() {});
               Navigator.pop(context);
             },
           )

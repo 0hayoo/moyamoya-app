@@ -8,6 +8,7 @@ part of 'school_response.dart';
 
 SchoolResponse _$SchoolResponseFromJson(Map<String, dynamic> json) =>
     SchoolResponse(
+      (json['id'] as num).toInt(),
       json['name'] as String,
       json['type'] as String?,
       json['cityName'] as String,
@@ -20,12 +21,12 @@ SchoolResponse _$SchoolResponseFromJson(Map<String, dynamic> json) =>
       DateTime.parse(json['anniversary'] as String),
       json['schoolCode'] as String,
       json['officeCode'] as String,
-      (json['id'] as num).toInt(),
-      DateTime.parse(json['createdAt'] as String),
+      (json['studentCount'] as num).toInt(),
     );
 
 Map<String, dynamic> _$SchoolResponseToJson(SchoolResponse instance) =>
     <String, dynamic>{
+      'id': instance.id,
       'name': instance.name,
       'type': instance.type,
       'cityName': instance.cityName,
@@ -38,6 +39,5 @@ Map<String, dynamic> _$SchoolResponseToJson(SchoolResponse instance) =>
       'anniversary': instance.anniversary.toIso8601String(),
       'schoolCode': instance.schoolCode,
       'officeCode': instance.officeCode,
-      'id': instance.id,
-      'createdAt': instance.createdAt.toIso8601String(),
+      'studentCount': instance.studentCount,
     };

@@ -45,41 +45,11 @@ class UserDataSourceImpl implements UserDataSource {
   @override
   Future<Result<List<String>>> availableProfiles() async {
     return await getResult(() async {
-      // final response = (await coreDio
-      //         .get<List<String>>("${BaseUrl.user}/available-profiles"))
-      //     .safeRequest();
+      final List<dynamic> response = (await coreDio
+              .get<List<dynamic>>("${BaseUrl.user}/available-profile-images"))
+          .safeRequest();
 
-      // return response;
-      return [
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkYYiJhqTJzJ8T-mTnPw_kBKNZK2iC1hIydw&s",
-        "https://www.shutterstock.com/image-vector/set-animal-icons-collection-different-260nw-302778458.jpg",
-        "https://cdn-icons-png.flaticon.com/512/616/616408.png",
-        "https://cdn.icon-icons.com/icons2/1929/PNG/512/iconfinder-rabbit-4591882_122129.png",
-        "https://cdn-icons-png.flaticon.com/512/235/235405.png",
-        "https://cdn-icons-png.flaticon.com/512/1752/1752621.png",
-        "https://cdn-icons-png.flaticon.com/512/194/194046.png",
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkYYiJhqTJzJ8T-mTnPw_kBKNZK2iC1hIydw&s",
-        "https://www.shutterstock.com/image-vector/set-animal-icons-collection-different-260nw-302778458.jpg",
-        "https://cdn-icons-png.flaticon.com/512/616/616408.png",
-        "https://cdn.icon-icons.com/icons2/1929/PNG/512/iconfinder-rabbit-4591882_122129.png",
-        "https://cdn-icons-png.flaticon.com/512/235/235405.png",
-        "https://cdn-icons-png.flaticon.com/512/1752/1752621.png",
-        "https://cdn-icons-png.flaticon.com/512/194/194046.png",
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkYYiJhqTJzJ8T-mTnPw_kBKNZK2iC1hIydw&s",
-        "https://www.shutterstock.com/image-vector/set-animal-icons-collection-different-260nw-302778458.jpg",
-        "https://cdn-icons-png.flaticon.com/512/616/616408.png",
-        "https://cdn.icon-icons.com/icons2/1929/PNG/512/iconfinder-rabbit-4591882_122129.png",
-        "https://cdn-icons-png.flaticon.com/512/235/235405.png",
-        "https://cdn-icons-png.flaticon.com/512/1752/1752621.png",
-        "https://cdn-icons-png.flaticon.com/512/194/194046.png",
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkYYiJhqTJzJ8T-mTnPw_kBKNZK2iC1hIydw&s",
-        "https://www.shutterstock.com/image-vector/set-animal-icons-collection-different-260nw-302778458.jpg",
-        "https://cdn-icons-png.flaticon.com/512/616/616408.png",
-        "https://cdn.icon-icons.com/icons2/1929/PNG/512/iconfinder-rabbit-4591882_122129.png",
-        "https://cdn-icons-png.flaticon.com/512/235/235405.png",
-        "https://cdn-icons-png.flaticon.com/512/1752/1752621.png",
-        "https://cdn-icons-png.flaticon.com/512/194/194046.png",
-      ];
+      return response.map((item) => item as String).toList();
     });
   }
 }

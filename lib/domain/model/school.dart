@@ -2,6 +2,7 @@ enum SchoolType { high, middle, elementary }
 
 class School {
   const School(
+    this.id,
     this.name,
     this.type,
     this.cityName,
@@ -14,10 +15,10 @@ class School {
     this.anniversary,
     this.schoolCode,
     this.officeCode,
-    this.id,
-    this.createdAt,
+    this.studentCount,
   );
 
+  final int id;
   final String name;
   final SchoolType? type;
   final String cityName;
@@ -30,6 +31,5 @@ class School {
   final DateTime anniversary;
   final String schoolCode;
   final String officeCode;
-  final int id;
-  final DateTime createdAt;
+  final int studentCount;
 }

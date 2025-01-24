@@ -11,10 +11,13 @@ class SignUpAuthPhoneScreen extends StatefulWidget {
   SignUpAuthPhoneScreen({
     super.key,
     required this.popBackStack,
+    required this.navigateToSignUpRetrieveSchoolScreen,
   });
 
   final VoidCallback popBackStack;
-  final String tel = Get.parameters["tel"] ?? "";
+  final Function(String phone, String authCode)
+      navigateToSignUpRetrieveSchoolScreen;
+  final String phone = Get.parameters["phone"] ?? "";
 
   @override
   State<SignUpAuthPhoneScreen> createState() => _SignUpAuthPhoneScreenState();
@@ -29,7 +32,7 @@ class _SignUpAuthPhoneScreenState extends State<SignUpAuthPhoneScreen> {
   final _verifyCodeTextController = TextEditingController();
   Ticker? _ticker;
 
-  static const _initialTime = 3;
+  static const _initialTime = 299;
   int _timer = _initialTime;
   bool _isTestAnimation = false;
 
@@ -54,7 +57,7 @@ class _SignUpAuthPhoneScreenState extends State<SignUpAuthPhoneScreen> {
                     height: 48,
                   ),
                   Text(
-                    "인증번호 + ${widget.tel}",
+                    "인증번호 + ${widget.phone}",
                     style: context.typography.title1Bold,
                   ),
                   SizedBox(
@@ -80,7 +83,7 @@ class _SignUpAuthPhoneScreenState extends State<SignUpAuthPhoneScreen> {
                                     return;
                                   }
                                   startTicker();
-                                  await viewModel.sendCode(widget.tel);
+                                  await viewModel.sendCode(widget.phone);
                                 },
                                 child: Text(
                                   _timer == 0
@@ -126,12 +129,18 @@ class _SignUpAuthPhoneScreenState extends State<SignUpAuthPhoneScreen> {
                             _isTestAnimation = true;
                           });
                           startTicker();
-                          await viewModel.sendCode(widget.tel);
+                          await viewModel.sendCode(widget.phone);
                         } else {
-                          await viewModel.verifyCode(
-                            widget.tel,
+                          final result = await viewModel.verifyCode(
+                            widget.phone,
                             _verifyCodeTextController.text,
                           );
+                          if (result == true) {
+                            widget.navigateToSignUpRetrieveSchoolScreen(
+                              widget.phone,
+                              _verifyCodeTextController.text,
+                            );
+                          }
                         }
                       },
                     ),

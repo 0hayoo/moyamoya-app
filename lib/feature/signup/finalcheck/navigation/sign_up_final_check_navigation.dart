@@ -13,4 +13,30 @@ GetPage<SignUpFinalCheckScreen> signUpFinalCheckScreen({
       page: () => SignUpFinalCheckScreen(popBackStack: popBackStack),
     );
 
-void navigateToSignUpFinalCheck() => Get.toNamed(signUpFinalCheckRoute);
+void navigateToSignUpFinalCheck({
+  required String phone,
+  required String verifyCode,
+  required int schoolId,
+  required String schoolName,
+  required String schoolType,
+  required int schoolGrade,
+  required int schoolClass,
+  required String name,
+  required String profileImageUrl,
+  required String gender,
+}) =>
+    Get.toNamed(
+      signUpFinalCheckRoute,
+      parameters: {
+        "phone": phone,
+        "verifyCode": verifyCode,
+        "schoolId": schoolId.toString(),
+        "schoolName": schoolName,
+        "schoolType": schoolType,
+        "schoolGrade": schoolGrade.toString(),
+        "schoolClass": schoolClass.toString(),
+        "name": name,
+        "profileImageUrl": profileImageUrl,
+        "gender": gender,
+      },
+    );

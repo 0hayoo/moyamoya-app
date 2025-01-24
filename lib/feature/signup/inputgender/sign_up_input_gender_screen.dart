@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:moyamoya/designsystem/component/button.dart';
 import 'package:moyamoya/designsystem/component/clickable.dart';
 import 'package:moyamoya/designsystem/component/top_app_bar.dart';
@@ -6,12 +7,35 @@ import 'package:moyamoya/designsystem/foundation/app_theme.dart';
 import 'package:moyamoya/designsystem/foundation/moya_moya_icons_icons.dart';
 
 class SignUpInputGenderScreen extends StatefulWidget {
-  const SignUpInputGenderScreen({
+  SignUpInputGenderScreen({
     super.key,
     required this.popBackStack,
+    required this.navigateToSignUpFinalCheckScreen,
   });
 
+  final Function(
+    String phone,
+    String verifyCode,
+    int schoolId,
+    String schoolName,
+    String schoolType,
+    int schoolGrade,
+    int schoolClass,
+    String name,
+    String profileImageUrl,
+    String gender,
+  ) navigateToSignUpFinalCheckScreen;
   final VoidCallback popBackStack;
+
+  final String phone = Get.parameters["phone"] ?? "";
+  final String verifyCode = Get.parameters["verifyCode"] ?? "";
+  final int schoolId = int.parse(Get.parameters["schoolId"] ?? "0");
+  final String schoolName = Get.parameters["schoolName"] ?? "";
+  final String schoolType = Get.parameters["schoolType"] ?? "";
+  final int schoolGrade = int.parse(Get.parameters["schoolGrade"] ?? "0");
+  final int schoolClass = int.parse(Get.parameters["schoolClass"] ?? "0");
+  final String name = Get.parameters["name"] ?? "";
+  final String profileImageUrl = Get.parameters["profileImageUrl"] ?? "";
 
   @override
   State<SignUpInputGenderScreen> createState() =>
@@ -85,7 +109,20 @@ class _SignUpInputGenderScreenState extends State<SignUpInputGenderScreen> {
               buttonType: ButtonType.primary,
               isEnabled: _isMale != null,
               rounded: true,
-              onPressed: () {},
+              onPressed: () {
+                widget.navigateToSignUpFinalCheckScreen(
+                  widget.phone,
+                  widget.verifyCode,
+                  widget.schoolId,
+                  widget.schoolName,
+                  widget.schoolType,
+                  widget.schoolGrade,
+                  widget.schoolClass,
+                  widget.name,
+                  widget.profileImageUrl,
+                  _isMale! ? "MALE" : "FEMALE",
+                );
+              },
             ),
             SafeArea(
               child: SizedBox(

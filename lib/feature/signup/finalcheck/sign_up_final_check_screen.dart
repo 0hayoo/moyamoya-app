@@ -1,16 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:moyamoya/designsystem/component/avatar.dart';
 import 'package:moyamoya/designsystem/component/button.dart';
 import 'package:moyamoya/designsystem/component/top_app_bar.dart';
 import 'package:moyamoya/designsystem/foundation/app_theme.dart';
 
 class SignUpFinalCheckScreen extends StatefulWidget {
-  const SignUpFinalCheckScreen({
+  SignUpFinalCheckScreen({
     super.key,
     required this.popBackStack,
   });
 
   final VoidCallback popBackStack;
+
+  final String phone = Get.parameters["phone"] ?? "";
+  final String verifyCode = Get.parameters["verifyCode"] ?? "";
+  final int schoolId = int.parse(Get.parameters["schoolId"] ?? "0");
+  final String schoolName = Get.parameters["schoolName"] ?? "";
+  final String schoolType = Get.parameters["schoolType"] ?? "";
+  final int schoolGrade = int.parse(Get.parameters["schoolGrade"] ?? "0");
+  final int schoolClass = int.parse(Get.parameters["schoolClass"] ?? "0");
+  final String name = Get.parameters["name"] ?? "";
+  final String profileImageUrl = Get.parameters["profileImageUrl"] ?? "";
+  final String gender = Get.parameters["gender"] ?? "";
 
   @override
   State<SignUpFinalCheckScreen> createState() => _SignUpFinalCheckScreenState();
@@ -48,10 +60,6 @@ class _SignUpFinalCheckScreenState extends State<SignUpFinalCheckScreen> {
               child: Stack(
                 alignment: Alignment.center,
                 children: [
-                  MoyaMoyaAvatar(
-                    avatarSize: AvatarSize.xxl,
-                    image: null,
-                  ),
                   Container(
                     width: 150,
                     height: 150,
@@ -59,7 +67,11 @@ class _SignUpFinalCheckScreenState extends State<SignUpFinalCheckScreen> {
                       color: context.colors.fillNormal,
                       borderRadius: BorderRadius.circular(106),
                     ),
-                  )
+                  ),
+                  MoyaMoyaAvatar(
+                    avatarSize: AvatarSize.xxl,
+                    image: widget.profileImageUrl,
+                  ),
                 ],
               ),
             ),
@@ -67,14 +79,14 @@ class _SignUpFinalCheckScreenState extends State<SignUpFinalCheckScreen> {
               height: 32,
             ),
             Text(
-              "노영재",
+              widget.name,
               style: context.typography.display2Bold,
             ),
             SizedBox(
               height: 8,
             ),
             Text(
-              "노영노영고등학교",
+              widget.schoolName,
               style: context.typography.headlineMedium.copyWith(
                 color: context.colors.labelAlternative,
               ),
@@ -83,7 +95,7 @@ class _SignUpFinalCheckScreenState extends State<SignUpFinalCheckScreen> {
               height: 4,
             ),
             Text(
-              "2학년 2반 · 여",
+              "${widget.schoolGrade}학년 ${widget.schoolClass}반 · ${widget.gender == "MALE" ? "남" : "여"}",
               style: context.typography.headlineMedium.copyWith(
                 color: context.colors.labelAlternative,
               ),

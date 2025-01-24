@@ -4,6 +4,7 @@ import 'package:moyamoya/network/school/response/school_response.dart';
 extension SchoolMapper on SchoolResponse {
   School toModel() {
     return School(
+      id,
       name,
       switch (type) {
         "HIGH" => SchoolType.high,
@@ -21,8 +22,7 @@ extension SchoolMapper on SchoolResponse {
       anniversary,
       schoolCode,
       officeCode,
-      id,
-      createdAt,
+      studentCount,
     );
   }
 }

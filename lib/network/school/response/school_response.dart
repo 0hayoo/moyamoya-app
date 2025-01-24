@@ -5,22 +5,22 @@ part 'school_response.g.dart';
 @JsonSerializable()
 class SchoolResponse {
   const SchoolResponse(
-    this.name,
-    this.type,
-    this.cityName,
-    this.postalCode,
-    this.address,
-    this.addressDetail,
-    this.phone,
-    this.website,
-    this.foundedAt,
-    this.anniversary,
-    this.schoolCode,
-    this.officeCode,
-    this.id,
-    this.createdAt,
-  );
+      this.id,
+      this.name,
+      this.type,
+      this.cityName,
+      this.postalCode,
+      this.address,
+      this.addressDetail,
+      this.phone,
+      this.website,
+      this.foundedAt,
+      this.anniversary,
+      this.schoolCode,
+      this.officeCode,
+      this.studentCount);
 
+  final int id;
   final String name;
   final String? type;
   final String cityName;
@@ -33,8 +33,7 @@ class SchoolResponse {
   final DateTime anniversary;
   final String schoolCode;
   final String officeCode;
-  final int id;
-  final DateTime createdAt;
+  final int studentCount;
 
   factory SchoolResponse.fromJson(Map<String, dynamic> json) =>
       _$SchoolResponseFromJson(json);
