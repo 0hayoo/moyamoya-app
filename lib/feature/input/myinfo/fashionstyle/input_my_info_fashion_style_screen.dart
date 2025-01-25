@@ -1,9 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:moyamoya/feature/input/core/input_core_flow_radio.dart';
 import 'package:moyamoya/feature/input/core/input_core_screen.dart';
 
 class InputMyInfoFashionStyleScreen extends StatefulWidget {
-  const InputMyInfoFashionStyleScreen({super.key});
+  const InputMyInfoFashionStyleScreen({
+    super.key,
+    required this.popBackStack,
+    required this.navigationToInputMyInfoFashionGlasses,
+  });
+
+  final VoidCallback popBackStack;
+  final Function(String messageInterval, List<String> fashionStyle)
+      navigationToInputMyInfoFashionGlasses;
 
   @override
   State<InputMyInfoFashionStyleScreen> createState() =>
@@ -12,6 +21,7 @@ class InputMyInfoFashionStyleScreen extends StatefulWidget {
 
 class _InputMyInfoFashionStyleScreenState
     extends State<InputMyInfoFashionStyleScreen> {
+  final args = Get.arguments as Map<String, dynamic>;
   final List<String> _selectItems = [];
 
   @override
@@ -19,8 +29,13 @@ class _InputMyInfoFashionStyleScreenState
     return InputCoreScreen(
       title: "나의 패션 스타일은?",
       isEnabled: _selectItems.isNotEmpty,
-      onBackPressed: () {},
-      onButtonPressed: () {},
+      onBackPressed: widget.popBackStack,
+      onButtonPressed: () {
+        widget.navigationToInputMyInfoFashionGlasses(
+          args["messageInterval"],
+          _selectItems,
+        );
+      },
       child: InputCoreFlowRadio(
         items: [
           "캐주얼",

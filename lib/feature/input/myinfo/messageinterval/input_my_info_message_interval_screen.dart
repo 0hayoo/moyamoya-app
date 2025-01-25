@@ -2,17 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:moyamoya/feature/input/core/input_core_screen.dart';
 import 'package:moyamoya/feature/input/core/input_core_text_radio.dart';
 
-class InputMyInfoMessageScreen extends StatefulWidget {
-  const InputMyInfoMessageScreen({
+class InputMyInfoMessageIntervalScreen extends StatefulWidget {
+  const InputMyInfoMessageIntervalScreen({
     super.key,
+    required this.popBackStack,
+    required this.navigationToInputMyInfoFashionStyle,
   });
 
+  final VoidCallback popBackStack;
+  final Function(String) navigationToInputMyInfoFashionStyle;
+
   @override
-  State<InputMyInfoMessageScreen> createState() =>
-      _InputMyInfoMessageScreenState();
+  State<InputMyInfoMessageIntervalScreen> createState() =>
+      _InputMyInfoMessageIntervalScreenState();
 }
 
-class _InputMyInfoMessageScreenState extends State<InputMyInfoMessageScreen> {
+class _InputMyInfoMessageIntervalScreenState
+    extends State<InputMyInfoMessageIntervalScreen> {
   String? _selectItem;
 
   @override
@@ -20,8 +26,10 @@ class _InputMyInfoMessageScreenState extends State<InputMyInfoMessageScreen> {
     return InputCoreScreen(
       title: "나의 연락 텀은?",
       isEnabled: _selectItem != null,
-      onBackPressed: () {},
-      onButtonPressed: () {},
+      onBackPressed: widget.popBackStack,
+      onButtonPressed: () {
+        widget.navigationToInputMyInfoFashionStyle(_selectItem!);
+      },
       child: InputCoreTextRadio(
         items: [
           "빠른",

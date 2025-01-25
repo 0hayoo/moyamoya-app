@@ -2,7 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get/get.dart';
 import 'package:moyamoya/designsystem/foundation/app_theme.dart';
-import 'package:moyamoya/feature/input/myinfo/height/input_my_info_height_screen.dart';
+import 'package:moyamoya/feature/input/myinfo/bodytype/navigation/input_my_info_body_type_navigation.dart';
+import 'package:moyamoya/feature/input/myinfo/facetype/navigation/input_my_info_face_type_navigation.dart';
+import 'package:moyamoya/feature/input/myinfo/fashionglasses/navigation/input_my_info_fashion_glasses_navigation.dart';
+import 'package:moyamoya/feature/input/myinfo/fashionstyle/navigation/input_my_info_fashion_style_navigation.dart';
+import 'package:moyamoya/feature/input/myinfo/hairtype/navigation/input_my_info_hair_type_navigation.dart';
+import 'package:moyamoya/feature/input/myinfo/height/navigation/input_my_info_height_navigation.dart';
+import 'package:moyamoya/feature/input/myinfo/mbti/navigation/input_my_info_mbti_navigation.dart';
+import 'package:moyamoya/feature/input/myinfo/messageinterval/navigation/input_my_info_message_interval_navigation.dart';
+import 'package:moyamoya/feature/input/myinfo/skincolor/navigation/input_my_info_skin_color_navigation.dart';
 import 'package:moyamoya/feature/onboarding/navigation/onbaording_navigation.dart';
 import 'package:moyamoya/feature/signup/authphone/navigation/sign_up_auth_phone_navigation.dart';
 import 'package:moyamoya/feature/signup/finalcheck/navigation/sign_up_final_check_navigation.dart';
@@ -38,14 +46,13 @@ class MoyaMoyaApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (_) => AppTheme(),
       builder: (context, _) => GetMaterialApp(
-        initialRoute: "/name",
+        initialRoute: inputMyInfoMessageIntervalRoute,
         title: "Flutter Demo",
         theme: AppTheme.light,
         darkTheme: AppTheme.dark,
         themeMode: context.watch<AppTheme>().themeMode,
         debugShowCheckedModeBanner: false,
         getPages: [
-          GetPage(name: "/name", page: () => InputMyInfoHeightScreen()),
           onboardingScreen(
             navigateToSignUp: navigateToSignUpInputPhoneScreen,
           ),
@@ -162,6 +169,154 @@ class MoyaMoyaApp extends StatelessWidget {
           ),
           signUpFinalCheckScreen(
             popBackStack: Get.back,
+          ),
+          inputMyInfoMessageIntervalScreen(
+            popBackStack: Get.back,
+            navigateToInputMyInfoFashionStyle: (messageInterval) {
+              navigateToInputMyInfoFashionStyleScreen(
+                messageInterval: messageInterval,
+              );
+            },
+          ),
+          inputMyInfoFashionStyleScreen(
+            popBackStack: Get.back,
+            navigationToInputMyInfoFashionGlasses: (
+              messageInterval,
+              fashionStyle,
+            ) {
+              navigateToInputMyInfoFashionGlassesScreen(
+                messageInterval: messageInterval,
+                fashionStyle: fashionStyle,
+              );
+            },
+          ),
+          inputMyInfoFashionGlassesScreen(
+            popBackStack: Get.back,
+            navigationToInputMyInfoHeight: (
+              messageInterval,
+              fashionStyle,
+              isGlasses,
+            ) {
+              navigateToInputMyInfoHeightScreen(
+                messageInterval: messageInterval,
+                fashionStyle: fashionStyle,
+                isGlasses: isGlasses,
+              );
+            },
+          ),
+          inputMyInfoHeightScreen(
+            popBackStack: Get.back,
+            navigateToInputMyInfoMBTIScreen: (
+              messageInterval,
+              fashionStyle,
+              isGlasses,
+              height,
+            ) {
+              navigateToInputMyInfoMBTIScreen(
+                messageInterval: messageInterval,
+                fashionStyle: fashionStyle,
+                isGlasses: isGlasses,
+                height: height,
+              );
+            },
+          ),
+          inputMyInfoMBTIScreen(
+            popBackStack: Get.back,
+            navigateToInputMyInfoFaceTypeScreen: (
+              messageInterval,
+              fashionStyle,
+              isGlasses,
+              height,
+              mbti,
+            ) {
+              navigateToInputMyInfoFaceTypeScreen(
+                messageInterval: messageInterval,
+                fashionStyle: fashionStyle,
+                isGlasses: isGlasses,
+                height: height,
+                mbti: mbti,
+              );
+            },
+          ),
+          inputMyInfoFaceTypeScreen(
+            popBackStack: Get.back,
+            navigationToInputMyInfoBodyType: (
+              messageInterval,
+              fashionStyle,
+              isGlasses,
+              height,
+              mbti,
+              faceType,
+            ) {
+              navigateToInputMyInfoBodyTypeScreen(
+                messageInterval: messageInterval,
+                fashionStyle: fashionStyle,
+                isGlasses: isGlasses,
+                height: height,
+                mbti: mbti,
+                faceType: faceType,
+              );
+            },
+          ),
+          inputMyInfoBodyTypeScreen(
+            popBackStack: Get.back,
+            navigateToInputMyInfoHairType: (
+              messageInterval,
+              fashionStyle,
+              isGlasses,
+              height,
+              mbti,
+              faceType,
+              bodyType,
+            ) {
+              navigateToInputMyInfoHairTypeScreen(
+                messageInterval: messageInterval,
+                fashionStyle: fashionStyle,
+                isGlasses: isGlasses,
+                height: height,
+                mbti: mbti,
+                faceType: faceType,
+                bodyType: bodyType,
+              );
+            },
+          ),
+          inputMyInfoHairTypeScreen(
+            popBackStack: Get.back,
+            navigateToInputMyInfoSkinColor: (
+              messageInterval,
+              fashionStyle,
+              isGlasses,
+              height,
+              mbti,
+              faceType,
+              bodyType,
+              hairType,
+            ) {
+              navigateToInputMyInfoSkinColorScreen(
+                messageInterval: messageInterval,
+                fashionStyle: fashionStyle,
+                isGlasses: isGlasses,
+                height: height,
+                mbti: mbti,
+                faceType: faceType,
+                bodyType: bodyType,
+                hairType: hairType,
+              );
+            },
+          ),
+          inputMyInfoSkinColorScreen(
+            popBackStack: Get.back,
+            navigationToInputIdealType: (
+              messageInterval,
+              fashionStyle,
+              isGlasses,
+              height,
+              mbti,
+              faceType,
+              bodyType,
+              hairType,
+              skinColor,
+            ) {},
           ),
         ],
       ),
