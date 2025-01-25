@@ -65,7 +65,7 @@ class _SignUpInputPhoneScreenState extends State<SignUpInputPhoneScreen> {
                 ),
                 SizedBox(
                   width: double.infinity,
-                  child: CenteredTextField(
+                  child: MoyaMoyaCenteredTextField(
                     controller: _telTextEditingController,
                     hintText: "010-1234-5678",
                   ),

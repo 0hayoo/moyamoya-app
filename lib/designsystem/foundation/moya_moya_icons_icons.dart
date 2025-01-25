@@ -30,4 +30,5 @@ class MoyaMoyaIcons {
   static const IconData topperson = IconData(0xe807, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData addline = IconData(0xe808, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData checkmark = IconData(0xe809, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData arrow_down = IconData(0xe80a, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }

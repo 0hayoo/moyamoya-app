@@ -15,8 +15,6 @@ import 'package:moyamoya/network/user/user_data_source.dart';
 
 @LazySingleton(as: UserDataSource)
 class UserDataSourceImpl implements UserDataSource {
-  final tokenDataSource = Get.find<TokenDataSource>();
-
   @override
   Future<Result<void>> sendCode(String phone) async {
     return await getResult(() async {
@@ -36,6 +34,7 @@ class UserDataSourceImpl implements UserDataSource {
   ) async {
     return await getResult(
       () async {
+        final tokenDataSource = Get.find<TokenDataSource>();
         final response = (await coreDio.post<Map<String, dynamic>>(
           "${BaseUrl.user}/verify-code",
           data: UserVerifyRequest(phone, code),

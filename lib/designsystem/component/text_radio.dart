@@ -50,10 +50,12 @@ class _MoyaMoyaTextRadioState extends State<MoyaMoyaTextRadio> {
             ? Border.all(
                 color: context.colors.primaryNormal,
                 width: 2,
+                strokeAlign: BorderSide.strokeAlignOutside,
               )
             : Border.all(
                 color: context.colors.lineNeutral,
                 width: 1,
+                strokeAlign: BorderSide.strokeAlignOutside,
               ),
         color: Colors.transparent,
       ),
@@ -105,6 +107,7 @@ class _MoyaMoyaTextRadioState extends State<MoyaMoyaTextRadio> {
             : Border.all(
                 color: context.colors.lineNeutral,
                 width: 1,
+                strokeAlign: BorderSide.strokeAlignOutside,
               ),
         color: widget.isChecked
             ? context.colors.primaryNormal

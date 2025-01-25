@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:moyamoya/designsystem/foundation/app_theme.dart';
 import 'package:smooth_corner/smooth_corner.dart';
 
-class CenteredTextField extends StatefulWidget {
-  const CenteredTextField({
+class MoyaMoyaCenteredTextField extends StatefulWidget {
+  const MoyaMoyaCenteredTextField({
     super.key,
     required this.controller,
     this.hintText,
@@ -17,10 +17,11 @@ class CenteredTextField extends StatefulWidget {
   final TextInputType? keyboardType;
 
   @override
-  State<CenteredTextField> createState() => _CenteredTextFieldState();
+  State<MoyaMoyaCenteredTextField> createState() =>
+      _MoyaMoyaCenteredTextFieldState();
 }
 
-class _CenteredTextFieldState extends State<CenteredTextField> {
+class _MoyaMoyaCenteredTextFieldState extends State<MoyaMoyaCenteredTextField> {
   late TextEditingController _controller;
 
   @override

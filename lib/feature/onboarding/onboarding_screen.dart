@@ -43,12 +43,3 @@ class OnboardingScreen extends StatelessWidget {
     );
   }
 }
-
-extension TestExtension on Widget {
-  Widget padding() {
-    return Padding(
-      padding: EdgeInsets.all(30),
-      child: this,
-    );
-  }
-}

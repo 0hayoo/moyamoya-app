@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get/get.dart';
 import 'package:moyamoya/designsystem/foundation/app_theme.dart';
+import 'package:moyamoya/feature/input/myinfo/height/input_my_info_height_screen.dart';
 import 'package:moyamoya/feature/onboarding/navigation/onbaording_navigation.dart';
 import 'package:moyamoya/feature/signup/authphone/navigation/sign_up_auth_phone_navigation.dart';
 import 'package:moyamoya/feature/signup/finalcheck/navigation/sign_up_final_check_navigation.dart';
@@ -37,13 +38,14 @@ class MoyaMoyaApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (_) => AppTheme(),
       builder: (context, _) => GetMaterialApp(
-        initialRoute: onboardingRoute,
+        initialRoute: "/name",
         title: "Flutter Demo",
         theme: AppTheme.light,
         darkTheme: AppTheme.dark,
         themeMode: context.watch<AppTheme>().themeMode,
         debugShowCheckedModeBanner: false,
         getPages: [
+          GetPage(name: "/name", page: () => InputMyInfoHeightScreen()),
           onboardingScreen(
             navigateToSignUp: navigateToSignUpInputPhoneScreen,
           ),

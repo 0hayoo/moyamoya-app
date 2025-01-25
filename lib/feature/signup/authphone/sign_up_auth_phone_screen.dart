@@ -65,7 +65,7 @@ class _SignUpAuthPhoneScreenState extends State<SignUpAuthPhoneScreen> {
                   ),
                   SizedBox(
                     width: double.infinity,
-                    child: CenteredTextField(
+                    child: MoyaMoyaCenteredTextField(
                       controller: _verifyCodeTextController,
                     ),
                   ),
