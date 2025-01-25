@@ -11,6 +11,8 @@ import 'package:moyamoya/feature/signup/inputprofile/navigation/sign_up_input_pr
 import 'package:moyamoya/feature/signup/inputschoolinfo/navigation/sign_up_input_school_info_navigation.dart';
 import 'package:moyamoya/feature/signup/retrieveschool/navigation/sign_up_retrieve_school_navigation.dart';
 import 'package:moyamoya/injectable_config.dart';
+import 'package:moyamoya/local/token/datasource/token_data_source_impl.dart';
+import 'package:moyamoya/local/token/token_data_source.dart';
 import 'package:moyamoya/network/school/datasource/school_data_source_impl.dart';
 import 'package:moyamoya/network/school/school_data_source.dart';
 import 'package:moyamoya/network/user/datasource/user_data_source_impl.dart';
@@ -21,6 +23,7 @@ void main() async {
   await dotenv.load(fileName: 'assets/config/.env');
   Get.put<UserDataSource>(UserDataSourceImpl());
   Get.put<SchoolDataSource>(SchoolDataSourceImpl());
+  Get.put<TokenDataSource>(TokenDataSourceImpl());
   configureDependencies();
 
   runApp(const MoyaMoyaApp());
