@@ -13,7 +13,8 @@ GetPage<InputMyInfoMessageIntervalScreen> inputMyInfoMessageIntervalScreen({
       name: inputMyInfoMessageIntervalRoute,
       page: () => InputMyInfoMessageIntervalScreen(
         popBackStack: popBackStack,
-        navigationToInputMyInfoFashionStyle: navigateToInputMyInfoFashionStyle,
+        navigationToInputIdealTypeFashionStyle:
+            navigateToInputMyInfoFashionStyle,
       ),
     );
 

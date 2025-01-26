@@ -2,6 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get/get.dart';
 import 'package:moyamoya/designsystem/foundation/app_theme.dart';
+import 'package:moyamoya/feature/input/idealtype/agetype/navigation/input_ideal_type_age_type_navigation.dart';
+import 'package:moyamoya/feature/input/idealtype/bodytype/navigation/input_ideal_type_body_type_navigation.dart';
+import 'package:moyamoya/feature/input/idealtype/facetype/navigation/input_ideal_type_face_type_navigation.dart';
+import 'package:moyamoya/feature/input/idealtype/fashionglasses/navigation/input_ideal_type_fashion_glasses_navigation.dart';
+import 'package:moyamoya/feature/input/idealtype/fashionstyle/navigation/input_ideal_type_fashion_style_navigation.dart';
+import 'package:moyamoya/feature/input/idealtype/hairtypeone/navigation/input_ideal_type_hair_type_one_navigation.dart';
+import 'package:moyamoya/feature/input/idealtype/hairtypetwo/navigation/input_ideal_type_hair_type_two_navigation.dart';
+import 'package:moyamoya/feature/input/idealtype/height/navigation/input_ideal_type_height_navigation.dart';
+import 'package:moyamoya/feature/input/idealtype/messageinterval/navigation/input_ideal_type_message_interval_navigation.dart';
+import 'package:moyamoya/feature/input/idealtype/onboarding/navigation/input_ideal_type_onboarding_navigation.dart';
+import 'package:moyamoya/feature/input/idealtype/personality/navigation/input_ideal_type_personality_navigation.dart';
+import 'package:moyamoya/feature/input/idealtype/skincolor/navigation/input_ideal_type_skin_color_navigation.dart';
 import 'package:moyamoya/feature/input/myinfo/bodytype/navigation/input_my_info_body_type_navigation.dart';
 import 'package:moyamoya/feature/input/myinfo/facetype/navigation/input_my_info_face_type_navigation.dart';
 import 'package:moyamoya/feature/input/myinfo/fashionglasses/navigation/input_my_info_fashion_glasses_navigation.dart';
@@ -337,20 +349,236 @@ class MoyaMoyaApp extends StatelessWidget {
           ),
           inputMyInfoSkinColorScreen(
             popBackStack: Get.back,
-            navigationToInputIdealType: (
+            navigationToInputIdealType: (myInfo) {
+              navigateToInputIdealTypeOnboardingScreen(
+                myInfo: myInfo,
+              );
+            },
+          ),
+          inputIdealTypeOnboardingScreen(
+            navigateToInputIdealTypeMessageInterval: (myInfo) {
+              navigateToInputIdealTypeMessageIntervalScreen(
+                myInfo: myInfo,
+              );
+            },
+          ),
+          inputIdealTypeMessageIntervalScreen(
+            popBackStack: Get.back,
+            navigateToInputIdealTypeFashionStyle: (myInfo, messageInterval) {
+              navigateToInputIdealTypeFashionStyleScreen(
+                myInfo: myInfo,
+                messageInterval: messageInterval,
+              );
+            },
+          ),
+          inputIdealTypeFashionStyleScreen(
+            popBackStack: Get.back,
+            navigateToInputIdealTypeFashionGlasses: (
+              myInfo,
               messageInterval,
               fashionStyle,
-              isGlasses,
-              height,
-              mbti,
+            ) {
+              navigateToInputIdealTypeFashionGlassesScreen(
+                myInfo: myInfo,
+                messageInterval: messageInterval,
+                fashionStyle: fashionStyle,
+              );
+            },
+          ),
+          inputIdealTypeFashionGlassesScreen(
+            popBackStack: Get.back,
+            navigateToInputMyInfoHeight: (
+              myInfo,
+              messageInterval,
+              fashionStyle,
+              hasGlasses,
+            ) {
+              navigateToInputIdealTypeHeightScreen(
+                myInfo: myInfo,
+                messageInterval: messageInterval,
+                fashionStyle: fashionStyle,
+                hasGlasses: hasGlasses,
+              );
+            },
+          ),
+          inputIdealTypeHeightScreen(
+            popBackStack: Get.back,
+            navigateToInputIdealTypeAgeTypeScreen: (
+              myInfo,
+              messageInterval,
+              fashionStyle,
+              hasGlasses,
+              heightLevel,
+            ) {
+              navigateToInputIdealTypeAgeTypeScreen(
+                myInfo: myInfo,
+                messageInterval: messageInterval,
+                fashionStyle: fashionStyle,
+                hasGlasses: hasGlasses,
+                heightLevel: heightLevel,
+              );
+            },
+          ),
+          inputIdealTypeAgeTypeScreen(
+            popBackStack: Get.back,
+            navigateToInputIdealTypePersonalityScreen: (
+              myInfo,
+              messageInterval,
+              fashionStyle,
+              hasGlasses,
+              heightLevel,
+              ageType,
+            ) {
+              navigateToInputIdealTypePersonalityScreen(
+                myInfo: myInfo,
+                messageInterval: messageInterval,
+                fashionStyle: fashionStyle,
+                hasGlasses: hasGlasses,
+                heightLevel: heightLevel,
+                ageType: ageType,
+              );
+            },
+          ),
+          inputIdealTypePersonalityScreen(
+            popBackStack: Get.back,
+            navigateToInputIdealTypeFaceTypeScreen: (
+              myInfo,
+              messageInterval,
+              fashionStyle,
+              hasGlasses,
+              heightLevel,
+              ageType,
+              personality,
+            ) {
+              navigateToInputIdealTypeFaceTypeScreen(
+                myInfo: myInfo,
+                messageInterval: messageInterval,
+                fashionStyle: fashionStyle,
+                hasGlasses: hasGlasses,
+                heightLevel: heightLevel,
+                ageType: ageType,
+                personality: personality,
+              );
+            },
+          ),
+          inputIdealTypeFaceTypeScreen(
+            popBackStack: Get.back,
+            navigateToInputIdealTypeBodyTypeScreen: (
+              myInfo,
+              messageInterval,
+              fashionStyle,
+              hasGlasses,
+              heightLevel,
+              ageType,
+              personality,
+              faceType,
+            ) {
+              navigateToInputIdealTypeBodyTypeScreen(
+                myInfo: myInfo,
+                messageInterval: messageInterval,
+                fashionStyle: fashionStyle,
+                hasGlasses: hasGlasses,
+                heightLevel: heightLevel,
+                ageType: ageType,
+                personality: personality,
+                faceType: faceType,
+              );
+            },
+          ),
+          inputIdealTypeBodyTypeScreen(
+            popBackStack: Get.back,
+            navigateToInputIdealTypeHairTypeOneScreen: (
+              myInfo,
+              messageInterval,
+              fashionStyle,
+              hasGlasses,
+              heightLevel,
+              ageType,
+              personality,
+              faceType,
+              bodyType,
+            ) {
+              navigateToInputIdealTypeHairTypeOneScreen(
+                myInfo: myInfo,
+                messageInterval: messageInterval,
+                fashionStyle: fashionStyle,
+                hasGlasses: hasGlasses,
+                heightLevel: heightLevel,
+                ageType: ageType,
+                personality: personality,
+                faceType: faceType,
+                bodyType: bodyType,
+              );
+            },
+          ),
+          inputIdealTypeHairTypeOneScreen(
+            popBackStack: Get.back,
+            navigateToInputIdealTypeHairTypeTwoScreen: (
+              myInfo,
+              messageInterval,
+              fashionStyle,
+              hasGlasses,
+              heightLevel,
+              ageType,
+              personality,
+              faceType,
+              bodyType,
+              hairLength,
+            ) {
+              navigateToInputIdealTypeHairTypeTwoScreen(
+                myInfo: myInfo,
+                messageInterval: messageInterval,
+                fashionStyle: fashionStyle,
+                hasGlasses: hasGlasses,
+                heightLevel: heightLevel,
+                ageType: ageType,
+                personality: personality,
+                faceType: faceType,
+                bodyType: bodyType,
+                hairLength: hairLength,
+              );
+            },
+          ),
+          inputIdealTypeHairTypeTwoScreen(
+            popBackStack: Get.back,
+            navigateToInputIdealTypeSkinColorScreen: (
+              myInfo,
+              messageInterval,
+              fashionStyle,
+              hasGlasses,
+              heightLevel,
+              ageType,
+              personality,
               faceType,
               bodyType,
               hairLength,
               isCurly,
               hasPerm,
               hasBang,
-              skinColor,
-            ) {},
+            ) {
+              navigateToInputIdealTypeSkinColorScreen(
+                myInfo: myInfo,
+                messageInterval: messageInterval,
+                fashionStyle: fashionStyle,
+                hasGlasses: hasGlasses,
+                heightLevel: heightLevel,
+                ageType: ageType,
+                personality: personality,
+                faceType: faceType,
+                bodyType: bodyType,
+                hairLength: hairLength,
+                isCurly: isCurly,
+                hasPerm: hasPerm,
+                hasBang: hasBang,
+              );
+            },
+          ),
+          inputIdealTypeSkinColorScreen(
+            popBackStack: Get.back,
+            navigateToInputIdealTypeFinishScreen: (myInfo, idealType) {
+              print(myInfo);
+              print(idealType);
+            },
           ),
         ],
       ),

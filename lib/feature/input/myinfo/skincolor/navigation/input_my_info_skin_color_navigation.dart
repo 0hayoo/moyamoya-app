@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:moyamoya/domain/model/user_hair_style.dart';
+import 'package:moyamoya/domain/model/user_my_info.dart';
 import 'package:moyamoya/feature/input/myinfo/skincolor/input_my_info_skin_color_screen.dart';
 
 const inputMyInfoSkinColorRoute = "/inputmyinfoskincolor";
@@ -7,25 +9,41 @@ const inputMyInfoSkinColorRoute = "/inputmyinfoskincolor";
 GetPage<InputMyInfoSkinColorScreen> inputMyInfoSkinColorScreen({
   required VoidCallback popBackStack,
   required Function(
-    String messageInterval,
-    List<String> fashionStyle,
-    bool isGlasses,
-    int height,
-    String mbti,
-    String faceType,
-    String bodyType,
-    String hairLength,
-    bool isCurly,
-    bool hasPerm,
-    bool hasBang,
-    String skinColor,
+    UserMyInfo myInfo,
   ) navigationToInputIdealType,
 }) =>
     GetPage(
       name: inputMyInfoSkinColorRoute,
       page: () => InputMyInfoSkinColorScreen(
         popBackStack: popBackStack,
-        navigationToInputIdealType: navigationToInputIdealType,
+        navigationToInputIdealType: (
+          messageInterval,
+          fashionStyle,
+          isGlasses,
+          height,
+          mbti,
+          faceType,
+          bodyType,
+          hairLength,
+          isCurly,
+          hasPerm,
+          hasBang,
+          skinColor,
+        ) {
+          navigationToInputIdealType(
+            UserMyInfo(
+              messageInterval: messageInterval,
+              fashionStyle: fashionStyle,
+              hasGlasses: isGlasses,
+              height: height,
+              mbti: mbti,
+              faceType: faceType,
+              bodyType: bodyType,
+              hairStyle: UserHairStyle(hairLength, isCurly, hasPerm, hasBang),
+              skinColor: skinColor,
+            ),
+          );
+        },
       ),
     );
 
