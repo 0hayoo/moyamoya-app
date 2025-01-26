@@ -39,6 +39,7 @@ class InputCoreScreen extends StatelessWidget {
           Text(
             title,
             style: context.typography.title1Bold,
+            textAlign: TextAlign.center,
           ),
           SizedBox(
             height: 16,

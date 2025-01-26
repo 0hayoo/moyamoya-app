@@ -6,7 +6,8 @@ import 'package:moyamoya/feature/input/myinfo/bodytype/navigation/input_my_info_
 import 'package:moyamoya/feature/input/myinfo/facetype/navigation/input_my_info_face_type_navigation.dart';
 import 'package:moyamoya/feature/input/myinfo/fashionglasses/navigation/input_my_info_fashion_glasses_navigation.dart';
 import 'package:moyamoya/feature/input/myinfo/fashionstyle/navigation/input_my_info_fashion_style_navigation.dart';
-import 'package:moyamoya/feature/input/myinfo/hairtype/navigation/input_my_info_hair_type_navigation.dart';
+import 'package:moyamoya/feature/input/myinfo/hairtypeone/navigation/input_my_info_hair_type_one_navigation.dart';
+import 'package:moyamoya/feature/input/myinfo/hairtypetwo/navigation/input_my_info_hair_type_two_navigation.dart';
 import 'package:moyamoya/feature/input/myinfo/height/navigation/input_my_info_height_navigation.dart';
 import 'package:moyamoya/feature/input/myinfo/mbti/navigation/input_my_info_mbti_navigation.dart';
 import 'package:moyamoya/feature/input/myinfo/messageinterval/navigation/input_my_info_message_interval_navigation.dart';
@@ -260,7 +261,7 @@ class MoyaMoyaApp extends StatelessWidget {
           ),
           inputMyInfoBodyTypeScreen(
             popBackStack: Get.back,
-            navigateToInputMyInfoHairType: (
+            navigateToInputMyInfoHairTypeOne: (
               messageInterval,
               fashionStyle,
               isGlasses,
@@ -269,7 +270,7 @@ class MoyaMoyaApp extends StatelessWidget {
               faceType,
               bodyType,
             ) {
-              navigateToInputMyInfoHairTypeScreen(
+              navigateToInputMyInfoHairTypeOneScreen(
                 messageInterval: messageInterval,
                 fashionStyle: fashionStyle,
                 isGlasses: isGlasses,
@@ -280,9 +281,9 @@ class MoyaMoyaApp extends StatelessWidget {
               );
             },
           ),
-          inputMyInfoHairTypeScreen(
+          inputMyInfoHairTypeOneScreen(
             popBackStack: Get.back,
-            navigateToInputMyInfoSkinColor: (
+            navigateToInputMyInfoHairTypeTwo: (
               messageInterval,
               fashionStyle,
               isGlasses,
@@ -290,7 +291,34 @@ class MoyaMoyaApp extends StatelessWidget {
               mbti,
               faceType,
               bodyType,
-              hairType,
+              hairLength,
+            ) {
+              navigateToInputMyInfoHairTypeTwoScreen(
+                messageInterval: messageInterval,
+                fashionStyle: fashionStyle,
+                isGlasses: isGlasses,
+                height: height,
+                mbti: mbti,
+                faceType: faceType,
+                bodyType: bodyType,
+                hairLength: hairLength,
+              );
+            },
+          ),
+          inputMyInfoHairTypeTwoScreen(
+            popBackStack: Get.back,
+            navigationToInputMyInfoSkinColor: (
+              messageInterval,
+              fashionStyle,
+              isGlasses,
+              height,
+              mbti,
+              faceType,
+              bodyType,
+              hairLength,
+              isCurly,
+              hasPerm,
+              hasBang,
             ) {
               navigateToInputMyInfoSkinColorScreen(
                 messageInterval: messageInterval,
@@ -300,7 +328,10 @@ class MoyaMoyaApp extends StatelessWidget {
                 mbti: mbti,
                 faceType: faceType,
                 bodyType: bodyType,
-                hairType: hairType,
+                hairLength: hairLength,
+                isCurly: isCurly,
+                hasPerm: hasPerm,
+                hasBang: hasBang,
               );
             },
           ),
@@ -314,7 +345,10 @@ class MoyaMoyaApp extends StatelessWidget {
               mbti,
               faceType,
               bodyType,
-              hairType,
+              hairLength,
+              isCurly,
+              hasPerm,
+              hasBang,
               skinColor,
             ) {},
           ),

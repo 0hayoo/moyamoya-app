@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:moyamoya/feature/input/core/input_core_centered_select.dart';
 import 'package:moyamoya/feature/input/core/input_core_screen.dart';
-import 'package:moyamoya/feature/input/core/input_core_text_radio.dart';
 
-class InputMyInfoSkinColorScreen extends StatefulWidget {
-  const InputMyInfoSkinColorScreen({
+class InputMyInfoHairTypeOneScreen extends StatefulWidget {
+  const InputMyInfoHairTypeOneScreen({
     super.key,
     required this.popBackStack,
-    required this.navigationToInputMyInfoSkinColor,
+    required this.navigationToInputMyInfoHairTypeTwo,
   });
 
   final VoidCallback popBackStack;
@@ -20,26 +20,26 @@ class InputMyInfoSkinColorScreen extends StatefulWidget {
     String faceType,
     String bodyType,
     String hairType,
-  ) navigationToInputMyInfoSkinColor;
+  ) navigationToInputMyInfoHairTypeTwo;
 
   @override
-  State<InputMyInfoSkinColorScreen> createState() =>
-      _InputMyInfoSkinColorScreenState();
+  State<InputMyInfoHairTypeOneScreen> createState() =>
+      _InputMyInfoHairTypeOneScreenState();
 }
 
-class _InputMyInfoSkinColorScreenState
-    extends State<InputMyInfoSkinColorScreen> {
+class _InputMyInfoHairTypeOneScreenState
+    extends State<InputMyInfoHairTypeOneScreen> {
   final args = Get.arguments as Map<String, dynamic>;
   String? _selectItem;
 
   @override
   Widget build(BuildContext context) {
     return InputCoreScreen(
-      title: "나의 헤어스타일은?",
+      title: "나의 헤어스타일은?\n(1/2)",
       isEnabled: _selectItem != null,
       onBackPressed: widget.popBackStack,
       onButtonPressed: () {
-        widget.navigationToInputMyInfoSkinColor(
+        widget.navigationToInputMyInfoHairTypeTwo(
           args["messageInterval"],
           args["fashionStyle"],
           args["isGlasses"],
@@ -47,16 +47,24 @@ class _InputMyInfoSkinColorScreenState
           args["mbti"],
           args["faceType"],
           args["bodyType"],
-          _selectItem!,
+          switch (_selectItem!) {
+            "짧은 머리(숏컷)" => "SHORT_CUT",
+            "단발" => "SHORT_HAIR",
+            "중단발" => "MEDIUM",
+            "장발" => "LONG",
+            _ => ""
+          },
         );
       },
-      child: InputCoreTextRadio(
+      isExpanded: false,
+      child: InputCoreCenteredSelect(
+        text: _selectItem ?? "",
         items: [
-          "마른",
-          "보통",
-          "통통",
+          "짧은 머리(숏컷)",
+          "단발",
+          "중단발",
+          "장발",
         ],
-        selectItem: _selectItem,
         onItemPressed: (item) {
           setState(() {
             _selectItem = item;

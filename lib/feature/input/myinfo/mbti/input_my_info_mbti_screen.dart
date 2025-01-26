@@ -63,7 +63,7 @@ class _InputMyInfoMBTIScreenState extends State<InputMyInfoMBTIScreen> {
           "ENFJ",
           "ENFP"
         ],
-        onPressedItem: (item) {
+        onItemPressed: (item) {
           setState(() {
             _selectedMBTI = item;
           });

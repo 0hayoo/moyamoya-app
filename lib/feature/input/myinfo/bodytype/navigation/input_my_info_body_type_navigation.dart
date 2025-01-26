@@ -15,13 +15,13 @@ GetPage<InputMyInfoBodyTypeScreen> inputMyInfoBodyTypeScreen({
     String mbti,
     String faceType,
     String bodyType,
-  ) navigateToInputMyInfoHairType,
+  ) navigateToInputMyInfoHairTypeOne,
 }) =>
     GetPage(
       name: inputMyInfoBodyTypeRoute,
       page: () => InputMyInfoBodyTypeScreen(
         popBackStack: popBackStack,
-        navigationToInputMyInfoHairType: navigateToInputMyInfoHairType,
+        navigationToInputMyInfoHairTypeOne: navigateToInputMyInfoHairTypeOne,
       ),
     );
 

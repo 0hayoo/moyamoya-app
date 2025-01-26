@@ -7,7 +7,7 @@ class InputMyInfoBodyTypeScreen extends StatefulWidget {
   const InputMyInfoBodyTypeScreen({
     super.key,
     required this.popBackStack,
-    required this.navigationToInputMyInfoHairType,
+    required this.navigationToInputMyInfoHairTypeOne,
   });
 
   final VoidCallback popBackStack;
@@ -19,7 +19,7 @@ class InputMyInfoBodyTypeScreen extends StatefulWidget {
     String mbti,
     String faceType,
     String bodyType,
-  ) navigationToInputMyInfoHairType;
+  ) navigationToInputMyInfoHairTypeOne;
 
   @override
   State<InputMyInfoBodyTypeScreen> createState() =>
@@ -37,14 +37,18 @@ class _InputMyInfoBodyTypeScreenState extends State<InputMyInfoBodyTypeScreen> {
       isEnabled: _selectItem != null,
       onBackPressed: widget.popBackStack,
       onButtonPressed: () {
-        widget.navigationToInputMyInfoHairType(
+        widget.navigationToInputMyInfoHairTypeOne(
           args["messageInterval"],
           args["fashionStyle"],
           args["isGlasses"],
           args["height"],
           args["mbti"],
           args["faceType"],
-          _selectItem!,
+          switch (_selectItem!) {
+            "마른" => "SLIM",
+            "보통" => "NORMAL",
+            _ => "CHUBBY",
+          },
         );
       },
       child: InputCoreTextRadio(

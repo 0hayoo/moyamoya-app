@@ -33,7 +33,20 @@ class _InputMyInfoFashionStyleScreenState
       onButtonPressed: () {
         widget.navigationToInputMyInfoFashionGlasses(
           args["messageInterval"],
-          _selectItems,
+          _selectItems
+              .map(
+                (item) => switch (item) {
+                  "캐주얼" => "CASUAL",
+                  "미니멀" => "MINIMAL",
+                  "스트릿" => "STREET",
+                  "빈티지" => "VINTAGE",
+                  "모던" => "MODERN",
+                  "클래식" => "CLASSIC",
+                  "스포티" => "SPORTY",
+                  _ => "",
+                },
+              )
+              .toList(),
         );
       },
       child: InputCoreFlowRadio(

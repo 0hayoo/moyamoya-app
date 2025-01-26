@@ -19,7 +19,10 @@ class InputMyInfoSkinColorScreen extends StatefulWidget {
     String mbti,
     String faceType,
     String bodyType,
-    String hairType,
+    String hairLength,
+    bool isCurly,
+    bool hasPerm,
+    bool hasBang,
     String skinColor,
   ) navigationToInputIdealType;
 
@@ -48,8 +51,15 @@ class _InputMyInfoSkinColorScreenState
           args["mbti"],
           args["faceType"],
           args["bodyType"],
-          args["hairType"],
-          _selectItem!,
+          args["hairLength"],
+          args["isCurly"],
+          args["hasPerm"],
+          args["hasBang"],
+          switch (_selectItem!) {
+            "밝은" => "BRIGHT",
+            "보통" => "NORMAL",
+            _ => "DARK",
+          },
         );
       },
       child: InputCoreTextRadio(

@@ -42,7 +42,14 @@ class _InputMyInfoFaceTypeScreenState extends State<InputMyInfoFaceTypeScreen> {
           args["isGlasses"],
           args["height"],
           args["mbti"],
-          _selectItem!,
+          switch (_selectItem!) {
+            "고양이상" => "CAT",
+            "강아지상" => "DOG",
+            "토끼상" => "RABBIT",
+            "곰상" => "BEAR",
+            "늑대상" => "WOLF",
+            _ => "DEAR",
+          },
         );
       },
       child: InputCoreTextRadio(

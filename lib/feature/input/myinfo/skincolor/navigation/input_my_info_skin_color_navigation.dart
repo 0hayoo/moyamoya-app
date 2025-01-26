@@ -14,7 +14,10 @@ GetPage<InputMyInfoSkinColorScreen> inputMyInfoSkinColorScreen({
     String mbti,
     String faceType,
     String bodyType,
-    String hairType,
+    String hairLength,
+    bool isCurly,
+    bool hasPerm,
+    bool hasBang,
     String skinColor,
   ) navigationToInputIdealType,
 }) =>
@@ -34,7 +37,10 @@ void navigateToInputMyInfoSkinColorScreen({
   required String mbti,
   required String faceType,
   required String bodyType,
-  required String hairType,
+  required String hairLength,
+  required bool isCurly,
+  required bool hasPerm,
+  required bool hasBang,
 }) {
   Get.toNamed(
     inputMyInfoSkinColorRoute,
@@ -46,7 +52,10 @@ void navigateToInputMyInfoSkinColorScreen({
       "mbti": mbti,
       "faceType": faceType,
       "bodyType": bodyType,
-      "hairType": hairType,
+      "hairLength": hairLength,
+      "isCurly": isCurly,
+      "hasPerm": hasPerm,
+      "hasBang": hasBang,
     },
   );
 }

@@ -28,7 +28,13 @@ class _InputMyInfoMessageIntervalScreenState
       isEnabled: _selectItem != null,
       onBackPressed: widget.popBackStack,
       onButtonPressed: () {
-        widget.navigationToInputMyInfoFashionStyle(_selectItem!);
+        widget.navigationToInputMyInfoFashionStyle(
+          switch (_selectItem!) {
+            "빠른" => "FAST",
+            "적당한" => "NORMAL",
+            _ => "LAZY",
+          },
+        );
       },
       child: InputCoreTextRadio(
         items: [

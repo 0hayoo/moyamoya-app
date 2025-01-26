@@ -11,12 +11,12 @@ class InputCoreCenteredSelect extends StatelessWidget {
     super.key,
     required this.text,
     required this.items,
-    required this.onPressedItem,
+    required this.onItemPressed,
   });
 
   final String text;
   final List<String> items;
-  final Function(String) onPressedItem;
+  final Function(String) onItemPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -89,7 +89,7 @@ class InputCoreCenteredSelect extends StatelessWidget {
               .map(
                 (item) => MoyaMoyaClickable(
                   onPressed: () {
-                    onPressedItem(item);
+                    onItemPressed(item);
                     Navigator.pop(context);
                   },
                   child: SizedBox(

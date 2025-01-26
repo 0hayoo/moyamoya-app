@@ -1,11 +1,11 @@
 import 'dart:ui';
 
 import 'package:get/get.dart';
-import 'package:moyamoya/feature/input/myinfo/hairtype/input_my_info_hair_type_screen.dart';
+import 'package:moyamoya/feature/input/myinfo/hairtypeone/input_my_info_hair_type_one_screen.dart';
 
-const inputMyInfoHairTypeRoute = "/inputmyinfohairtype";
+const inputMyInfoHairTypeOneRoute = "/inputmyinfohairtypeone";
 
-GetPage<InputMyInfoSkinColorScreen> inputMyInfoHairTypeScreen({
+GetPage<InputMyInfoHairTypeOneScreen> inputMyInfoHairTypeOneScreen({
   required VoidCallback popBackStack,
   required Function(
     String messageInterval,
@@ -15,18 +15,18 @@ GetPage<InputMyInfoSkinColorScreen> inputMyInfoHairTypeScreen({
     String mbti,
     String faceType,
     String bodyType,
-    String hairType,
-  ) navigateToInputMyInfoSkinColor,
+    String hairLength,
+  ) navigateToInputMyInfoHairTypeTwo,
 }) =>
     GetPage(
-      name: inputMyInfoHairTypeRoute,
-      page: () => InputMyInfoSkinColorScreen(
+      name: inputMyInfoHairTypeOneRoute,
+      page: () => InputMyInfoHairTypeOneScreen(
         popBackStack: popBackStack,
-        navigationToInputMyInfoSkinColor: navigateToInputMyInfoSkinColor,
+        navigationToInputMyInfoHairTypeTwo: navigateToInputMyInfoHairTypeTwo,
       ),
     );
 
-void navigateToInputMyInfoHairTypeScreen({
+void navigateToInputMyInfoHairTypeOneScreen({
   required String messageInterval,
   required List<String> fashionStyle,
   required bool isGlasses,
@@ -36,7 +36,7 @@ void navigateToInputMyInfoHairTypeScreen({
   required String bodyType,
 }) =>
     Get.toNamed(
-      inputMyInfoHairTypeRoute,
+      inputMyInfoHairTypeOneRoute,
       arguments: {
         "messageInterval": messageInterval,
         "fashionStyle": fashionStyle,
