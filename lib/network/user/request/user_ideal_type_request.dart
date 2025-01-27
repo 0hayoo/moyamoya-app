@@ -1,9 +1,11 @@
-import 'package:moyamoya/domain/model/user_hair_style.dart';
+import 'package:json_annotation/json_annotation.dart';
+import 'package:moyamoya/network/user/request/user_hair_style_request.dart';
 
-import 'user_profile_available_personality.dart';
+part 'user_ideal_type_request.g.dart';
 
-class UserIdealType {
-  UserIdealType({
+@JsonSerializable()
+class UserIdealTypeRequest {
+  UserIdealTypeRequest({
     required this.messageInterval,
     required this.fashionStyle,
     required this.hasGlasses,
@@ -21,9 +23,14 @@ class UserIdealType {
   final bool hasGlasses;
   final String heightLevel;
   final String ageType;
-  final List<UserProfileAvailablePersonality> personality;
+  final List<int> personality;
   final String faceType;
   final String bodyType;
-  final UserHairStyle hairStyle;
+  final UserHairStyleRequest hairStyle;
   final String skinColor;
+
+  factory UserIdealTypeRequest.fromJson(Map<String, dynamic> json) =>
+      _$UserIdealTypeRequestFromJson(json);
+
+  Map<String, dynamic> toJson() => _$UserIdealTypeRequestToJson(this);
 }

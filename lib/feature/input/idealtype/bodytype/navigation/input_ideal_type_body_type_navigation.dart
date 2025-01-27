@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:get/get.dart';
 import 'package:moyamoya/domain/model/user_my_info.dart';
+import 'package:moyamoya/domain/model/user_profile_available_personality.dart';
 import 'package:moyamoya/feature/input/idealtype/bodytype/input_ideal_type_body_type_screen.dart';
 
 const inputIdealTypeBodyTypeRoute = "/inputidealtypebodytype";
@@ -15,7 +16,7 @@ GetPage<InputIdealTypeBodyTypeScreen> inputIdealTypeBodyTypeScreen({
     bool hasGlasses,
     String heightLevel,
     String ageType,
-    List<String> personality,
+    List<UserProfileAvailablePersonality> personality,
     String faceType,
     String bodyType,
   ) navigateToInputIdealTypeHairTypeOneScreen,
@@ -36,7 +37,7 @@ void navigateToInputIdealTypeBodyTypeScreen({
   required bool hasGlasses,
   required String heightLevel,
   required String ageType,
-  required List<String> personality,
+  required List<UserProfileAvailablePersonality> personality,
   required String faceType,
 }) =>
     Get.toNamed(

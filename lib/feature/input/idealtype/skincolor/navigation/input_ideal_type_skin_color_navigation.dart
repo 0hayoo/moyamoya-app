@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:moyamoya/domain/model/user_hair_style.dart';
 import 'package:moyamoya/domain/model/user_ideal_type.dart';
 import 'package:moyamoya/domain/model/user_my_info.dart';
+import 'package:moyamoya/domain/model/user_profile_available_personality.dart';
 import 'package:moyamoya/feature/input/idealtype/skincolor/input_ideal_type_skin_color_screen.dart';
 
 const inputIdealTypeSkinColorRoute = "/inputidealtypeskincolor";
@@ -66,7 +67,7 @@ void navigateToInputIdealTypeSkinColorScreen({
   required bool hasGlasses,
   required String heightLevel,
   required String ageType,
-  required List<String> personality,
+  required List<UserProfileAvailablePersonality> personality,
   required String faceType,
   required String bodyType,
   required String hairLength,

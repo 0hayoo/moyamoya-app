@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:moyamoya/designsystem/component/text_radio.dart';
 import 'package:moyamoya/designsystem/foundation/app_theme.dart';
 import 'package:moyamoya/domain/model/user_my_info.dart';
+import 'package:moyamoya/domain/model/user_profile_available_personality.dart';
 import 'package:moyamoya/feature/input/core/input_core_screen.dart';
 
 class InputIdealTypeHairTypeTwoScreen extends StatefulWidget {
@@ -20,7 +21,7 @@ class InputIdealTypeHairTypeTwoScreen extends StatefulWidget {
     bool hasGlasses,
     String heightLevel,
     String ageType,
-    List<String> personality,
+    List<UserProfileAvailablePersonality> personality,
     String faceType,
     String bodyType,
     String hairLength,

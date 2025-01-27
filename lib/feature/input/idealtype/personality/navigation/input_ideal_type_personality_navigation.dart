@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:get/get.dart';
 import 'package:moyamoya/domain/model/user_my_info.dart';
+import 'package:moyamoya/domain/model/user_profile_available_personality.dart';
 import 'package:moyamoya/feature/input/idealtype/personality/input_ideal_type_personality_screen.dart';
 
 const inputIdealTypePersonalityRoute = "/inputidealtypepersonality";
@@ -15,7 +16,7 @@ GetPage<InputIdealTypePersonalityScreen> inputIdealTypePersonalityScreen({
     bool hasGlasses,
     String heightLevel,
     String ageType,
-    List<String> personality,
+    List<UserProfileAvailablePersonality> personality,
   ) navigateToInputIdealTypeFaceTypeScreen,
 }) =>
     GetPage(

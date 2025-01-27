@@ -59,7 +59,7 @@ class MoyaMoyaApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (_) => AppTheme(),
       builder: (context, _) => GetMaterialApp(
-        initialRoute: inputMyInfoMessageIntervalRoute,
+        initialRoute: onboardingRoute,
         title: "Flutter Demo",
         theme: AppTheme.light,
         darkTheme: AppTheme.dark,
@@ -182,6 +182,9 @@ class MoyaMoyaApp extends StatelessWidget {
           ),
           signUpFinalCheckScreen(
             popBackStack: Get.back,
+            navigateToHome: () {
+              debugPrint("홈으로 이동");
+            },
           ),
           inputMyInfoMessageIntervalScreen(
             popBackStack: Get.back,

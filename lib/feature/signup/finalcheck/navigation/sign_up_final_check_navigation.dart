@@ -7,10 +7,14 @@ const signUpFinalCheckRoute = "/signupfinalcheck";
 
 GetPage<SignUpFinalCheckScreen> signUpFinalCheckScreen({
   required VoidCallback popBackStack,
+  required VoidCallback navigateToHome,
 }) =>
     GetPage(
       name: signUpFinalCheckRoute,
-      page: () => SignUpFinalCheckScreen(popBackStack: popBackStack),
+      page: () => SignUpFinalCheckScreen(
+        popBackStack: popBackStack,
+        navigateToHome: navigateToHome,
+      ),
     );
 
 void navigateToSignUpFinalCheck({

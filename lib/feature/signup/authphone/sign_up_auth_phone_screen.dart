@@ -37,6 +37,15 @@ class _SignUpAuthPhoneScreenState extends State<SignUpAuthPhoneScreen> {
   bool _isTestAnimation = false;
 
   @override
+  void dispose() {
+    setState(() {
+      _ticker?.stop();
+      _ticker = null;
+    });
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Obx(
       () => Stack(
@@ -57,7 +66,7 @@ class _SignUpAuthPhoneScreenState extends State<SignUpAuthPhoneScreen> {
                     height: 48,
                   ),
                   Text(
-                    "인증번호 + ${widget.phone}",
+                    "인증번호",
                     style: context.typography.title1Bold,
                   ),
                   SizedBox(
@@ -122,7 +131,7 @@ class _SignUpAuthPhoneScreenState extends State<SignUpAuthPhoneScreen> {
                       buttonType: ButtonType.primary,
                       isEnabled: !viewModel.isSending.value &&
                           (_ticker == null ||
-                              _verifyCodeTextController.text.length != 6),
+                              _verifyCodeTextController.text.length == 6),
                       onPressed: () async {
                         if (_ticker == null) {
                           setState(() {

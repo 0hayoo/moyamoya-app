@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:moyamoya/domain/model/user_my_info.dart';
+import 'package:moyamoya/domain/model/user_profile_available_personality.dart';
 import 'package:moyamoya/feature/input/core/input_core_screen.dart';
 import 'package:moyamoya/feature/input/core/input_core_text_radio.dart';
 
@@ -19,7 +20,7 @@ class InputIdealTypeSkinColorScreen extends StatefulWidget {
     bool hasGlasses,
     String heightLevel,
     String ageType,
-    List<String> personality,
+    List<UserProfileAvailablePersonality> personality,
     String faceType,
     String bodyType,
     String hairLength,
@@ -42,7 +43,7 @@ class _InputIdealTypeSkinColorScreenState
   @override
   Widget build(BuildContext context) {
     return InputCoreScreen(
-      title: "나의 피부톤은?",
+      title: "이상형의 피부톤은?",
       isEnabled: _selectItem != null,
       onBackPressed: widget.popBackStack,
       onButtonPressed: () {

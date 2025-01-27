@@ -37,4 +37,12 @@ class TokenDataSourceImpl implements TokenDataSource {
       refreshToken,
     );
   }
+
+  @override
+  Future<void> saveAccessToken({required String accessToken}) async {
+    await moyaFlutterSecureStorage.write(
+      key: _accessTokenKey,
+      value: accessToken,
+    );
+  }
 }

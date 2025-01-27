@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:moyamoya/domain/model/user_my_info.dart';
+import 'package:moyamoya/domain/model/user_profile_available_personality.dart';
 import 'package:moyamoya/feature/input/core/input_core_screen.dart';
 import 'package:moyamoya/feature/input/core/input_core_text_radio.dart';
 
@@ -19,7 +20,7 @@ class InputIdealTypeFaceTypeScreen extends StatefulWidget {
     bool hasGlasses,
     String heightLevel,
     String ageType,
-    List<String> personality,
+    List<UserProfileAvailablePersonality> personality,
     String faceType,
   ) navigateToInputIdealTypeBodyTypeScreen;
 

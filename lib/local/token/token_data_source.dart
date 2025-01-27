@@ -10,6 +10,12 @@ interface class TokenDataSource {
     throw UnimplementedError();
   }
 
+  Future<void> saveAccessToken({
+    required String accessToken,
+  }) async {
+    throw UnimplementedError();
+  }
+
   Future<UserToken?> getToken() async {
     throw UnimplementedError();
   }

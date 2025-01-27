@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:moyamoya/designsystem/component/text_radio.dart';
 import 'package:moyamoya/designsystem/foundation/app_theme.dart';
 import 'package:moyamoya/domain/model/user_my_info.dart';
-import 'package:moyamoya/feature/input/core/input_core_flow_radio.dart';
+import 'package:moyamoya/domain/model/user_profile_available_personality.dart';
 import 'package:moyamoya/feature/input/core/input_core_screen.dart';
+import 'package:moyamoya/feature/input/idealtype/personality/viewmodel/input_ideal_type_personality_viewmodel.dart';
 
 class InputIdealTypePersonalityScreen extends StatefulWidget {
   const InputIdealTypePersonalityScreen({
@@ -20,7 +22,7 @@ class InputIdealTypePersonalityScreen extends StatefulWidget {
     bool hasGlasses,
     String heightLevel,
     String ageType,
-    List<String> personality,
+    List<UserProfileAvailablePersonality> personality,
   ) navigateToInputIdealTypeFaceTypeScreen;
 
   @override
@@ -30,77 +32,99 @@ class InputIdealTypePersonalityScreen extends StatefulWidget {
 
 class _InputIdealTypePersonalityScreenState
     extends State<InputIdealTypePersonalityScreen> {
+  final _viewModel = Get.put(InputIdealTypePersonalityViewModel());
   final args = Get.arguments as Map<String, dynamic>;
 
-  final List<String> _selectItems = [];
+  final List<UserProfileAvailablePersonality> _selectItems = [];
+
+  @override
+  void initState() {
+    _viewModel.load();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return InputCoreScreen(
-      title: "이상형의 성격은?",
-      isEnabled: _selectItems.isNotEmpty,
-      onBackPressed: widget.popBackStack,
-      onButtonPressed: () {
-        widget.navigateToInputIdealTypeFaceTypeScreen(
-          args["myInfo"],
-          args["messageInterval"],
-          args["fashionStyle"],
-          args["hasGlasses"],
-          args["heightLevel"],
-          args["ageType"],
-          _selectItems,
-        );
-      },
-      child: Column(
-        spacing: 8,
-        children: [
-          Text(
-            "${_selectItems.length}/5",
-            style: context.typography.bodyMedium.copyWith(
-              color: context.colors.labelAssistive,
+    return Obx(
+      () => InputCoreScreen(
+        title: "이상형의 성격은?",
+        isEnabled: _selectItems.isNotEmpty,
+        onBackPressed: widget.popBackStack,
+        onButtonPressed: () {
+          widget.navigateToInputIdealTypeFaceTypeScreen(
+            args["myInfo"],
+            args["messageInterval"],
+            args["fashionStyle"],
+            args["hasGlasses"],
+            args["heightLevel"],
+            args["ageType"],
+            _selectItems,
+          );
+        },
+        child: Column(
+          spacing: 8,
+          children: [
+            Text(
+              "${_selectItems.length}/5",
+              style: context.typography.bodyMedium.copyWith(
+                color: context.colors.labelAssistive,
+              ),
             ),
-          ),
-          Expanded(
-            child: InputCoreFlowRadio(
-              items: [
-                "키 작은",
-                "키 보통",
-                "키 큰",
-                "공부 잘 하는",
-                "노래 잘 하는",
-                "예체능",
-                "밝은",
-                "다정한",
-                "독특한",
-                "자주 만나는",
-                "바깥 데이트",
-                "집 데이트",
-                "활발한",
-                "조용한",
-                "귀여운",
-                "섹시한",
-                "안경이 잘 어울리는",
-                "잘생긴",
-                "애교많은",
-                "시크한",
-              ],
-              selectItems: _selectItems,
-              onItemPressed: (item) {
-                setState(() {
-                  if (_selectItems.contains(item)) {
-                    _selectItems.remove(item);
-                  } else {
-                    if (_selectItems.length >= 5) {
-                      return;
+            Expanded(
+              child: _InputCorePersonalityFlowRadio(
+                items: _viewModel.availablePersonalities.value,
+                selectItems: _selectItems,
+                onItemPressed: (item) {
+                  setState(() {
+                    if (_selectItems.contains(item)) {
+                      _selectItems.remove(item);
+                    } else {
+                      if (_selectItems.length >= 5) {
+                        return;
+                      }
+                      _selectItems.add(item);
                     }
-                    _selectItems.add(item);
-                  }
-                });
-              },
+                  });
+                },
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
+    );
+  }
+}
+
+class _InputCorePersonalityFlowRadio extends StatelessWidget {
+  const _InputCorePersonalityFlowRadio({
+    super.key,
+    required this.items,
+    required this.selectItems,
+    required this.onItemPressed,
+  });
+
+  final List<UserProfileAvailablePersonality> items;
+  final List<UserProfileAvailablePersonality> selectItems;
+  final Function(UserProfileAvailablePersonality) onItemPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    return Wrap(
+      spacing: 8,
+      runSpacing: 8,
+      alignment: WrapAlignment.center,
+      children: items
+          .map(
+            (item) => MoyaMoyaTextRadio(
+              text: item.content,
+              isChecked: selectItems.contains(item),
+              onChanged: (_) {
+                onItemPressed(item);
+              },
+              radioSize: TextRadioSize.small,
+            ),
+          )
+          .toList(),
     );
   }
 }

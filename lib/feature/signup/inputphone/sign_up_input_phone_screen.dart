@@ -180,7 +180,7 @@ class _SignUpInputPhoneScreenState extends State<SignUpInputPhoneScreen> {
                   size: 22,
                   color: (_isAgreeToTerms && _isPrivacyPolicyAccepted)
                       ? context.colors.primaryNormal
-                      : context.colors.labelAlternative,
+                      : context.colors.labelAlternative.withValues(alpha: 0.5),
                 ),
                 SizedBox(
                   width: 6,
@@ -254,7 +254,7 @@ class _SignUpInputPhoneScreenState extends State<SignUpInputPhoneScreen> {
               size: 16,
               color: isSelected
                   ? context.colors.primaryNormal
-                  : context.colors.labelAlternative,
+                  : context.colors.labelAlternative.withValues(alpha: 0.5),
             ),
             SizedBox(
               width: 12,

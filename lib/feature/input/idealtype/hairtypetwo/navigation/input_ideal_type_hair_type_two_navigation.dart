@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:get/get.dart';
 import 'package:moyamoya/domain/model/user_my_info.dart';
+import 'package:moyamoya/domain/model/user_profile_available_personality.dart';
 import 'package:moyamoya/feature/input/idealtype/hairtypetwo/input_ideal_type_hair_type_two_screen.dart';
 
 const inputIdealTypeHairTypeTwoRoute = "/inputidealtypehairtypetwo";
@@ -15,7 +16,7 @@ GetPage<InputIdealTypeHairTypeTwoScreen> inputIdealTypeHairTypeTwoScreen({
     bool hasGlasses,
     String heightLevel,
     String ageType,
-    List<String> personality,
+    List<UserProfileAvailablePersonality> personality,
     String faceType,
     String bodyType,
     String hairLength,
@@ -40,7 +41,7 @@ void navigateToInputIdealTypeHairTypeTwoScreen({
   required bool hasGlasses,
   required String heightLevel,
   required String ageType,
-  required List<String> personality,
+  required List<UserProfileAvailablePersonality> personality,
   required String faceType,
   required String bodyType,
   required String hairLength,

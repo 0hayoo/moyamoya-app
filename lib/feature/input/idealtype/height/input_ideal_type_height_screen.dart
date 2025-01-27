@@ -65,7 +65,7 @@ class _InputIdealTypeHeightScreenState
         selectItem: _selectItem,
         onItemPressed: (item) {
           setState(() {
-            _selectItem = item == _selectItem ? null : _selectItem;
+            _selectItem = item;
           });
         },
       ),
