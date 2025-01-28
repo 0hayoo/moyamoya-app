@@ -18,7 +18,14 @@ final Dio coreDio = Dio(
   ]);
 
 class _AuthInterceptor extends Interceptor {
-  final List<String> _excludedPaths = ['/auth/login', '/auth/refresh'];
+  final List<String> _excludedPaths = [
+    "/users/sign-up",
+    "/users/available-profile-images",
+    "/schools",
+    "/users/verify-code",
+    "/users/send-code",
+    "/users/refresh",
+  ];
   final tokenDataSource = Get.find<TokenDataSource>();
 
   @override

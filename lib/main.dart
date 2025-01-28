@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get/get.dart';
 import 'package:moyamoya/designsystem/foundation/app_theme.dart';
+import 'package:moyamoya/feature/home/navigation/home_navigation.dart';
 import 'package:moyamoya/feature/input/idealtype/agetype/navigation/input_ideal_type_age_type_navigation.dart';
 import 'package:moyamoya/feature/input/idealtype/bodytype/navigation/input_ideal_type_body_type_navigation.dart';
 import 'package:moyamoya/feature/input/idealtype/facetype/navigation/input_ideal_type_face_type_navigation.dart';
@@ -59,13 +60,14 @@ class MoyaMoyaApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (_) => AppTheme(),
       builder: (context, _) => GetMaterialApp(
-        initialRoute: onboardingRoute,
+        initialRoute: homeRoute,
         title: "Flutter Demo",
         theme: AppTheme.light,
         darkTheme: AppTheme.dark,
         themeMode: context.watch<AppTheme>().themeMode,
         debugShowCheckedModeBanner: false,
         getPages: [
+          homeScreen(),
           onboardingScreen(
             navigateToSignUp: navigateToSignUpInputPhoneScreen,
           ),

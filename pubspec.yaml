@@ -45,6 +45,7 @@ dependencies:
   json_annotation: ^4.9.0
   injectable: ^2.5.0
   flutter_secure_storage: ^9.2.4
+  expandable_page_view: ^1.0.17
 
 dev_dependencies:
   flutter_test:
@@ -89,6 +90,7 @@ flutter:
 
   assets:
     - assets/config/.env
+    - assets/images/
 
   fonts:
     - family: MoyaMoyaIcons
