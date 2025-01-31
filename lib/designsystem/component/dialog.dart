@@ -4,18 +4,36 @@ import 'package:moyamoya/designsystem/component/text_button.dart';
 import 'package:moyamoya/designsystem/foundation/app_theme.dart';
 import 'package:smooth_corner/smooth_corner.dart';
 
-enum DialogType {
-  oneButton,
-  twoButton,
+sealed class DialogType {}
+
+class OneButton implements DialogType {
+  const OneButton({
+    this.text = "닫기",
+    required this.onClosePressed,
+  });
+  final String text;
+  final VoidCallback onClosePressed;
+}
+
+class TwoButton implements DialogType {
+  const TwoButton({
+    this.closeText = "닫기",
+    this.successText = "확인",
+    required this.onClosePressed,
+    required this.onSuccessPressed,
+  });
+
+  final String closeText;
+  final String successText;
+  final VoidCallback onClosePressed;
+  final VoidCallback onSuccessPressed;
 }
 
 Future<void> showMoyaMoyaDialog({
   required BuildContext context,
   required String title,
   required String content,
-  required VoidCallback onClosePressed,
-  DialogType dialogType = DialogType.oneButton,
-  VoidCallback? onSuccessPressed,
+  required DialogType dialogType,
 }) =>
     showDialog<void>(
         context: context,
@@ -65,16 +83,19 @@ Future<void> showMoyaMoyaDialog({
                       SizedBox(
                         height: 18,
                       ),
-                      if (dialogType == DialogType.oneButton)
+                      if (dialogType is OneButton)
                         _buildOneButton(
                           context,
-                          onClosePressed,
+                          dialogType.text,
+                          dialogType.onClosePressed,
                         ),
-                      if (dialogType == DialogType.twoButton)
+                      if (dialogType is TwoButton)
                         _buildTwoButton(
                           context,
-                          onClosePressed,
-                          onSuccessPressed ?? () {},
+                          dialogType.closeText,
+                          dialogType.successText,
+                          dialogType.onClosePressed,
+                          dialogType.onSuccessPressed,
                         ),
                     ],
                   ),
@@ -86,12 +107,13 @@ Future<void> showMoyaMoyaDialog({
 
 Widget _buildOneButton(
   BuildContext context,
+  String text,
   VoidCallback onClosePressed,
 ) {
   return Align(
     alignment: Alignment.centerRight,
     child: MoyaMoyaTextButton(
-      text: "닫기",
+      text: text,
       textColor: context.colors.primaryNormal,
       onPressed: onClosePressed,
       buttonSize: TextButtonSize.medium,
@@ -101,6 +123,8 @@ Widget _buildOneButton(
 
 Widget _buildTwoButton(
   BuildContext context,
+  String closeText,
+  String successText,
   VoidCallback onClosePressed,
   VoidCallback onSuccessPressed,
 ) {
@@ -108,7 +132,7 @@ Widget _buildTwoButton(
     children: [
       Expanded(
         child: MoyaMoyaButton(
-          text: "닫기",
+          text: closeText,
           buttonSize: ButtonSize.large,
           buttonType: ButtonType.alternative,
           onPressed: onClosePressed,
@@ -119,7 +143,7 @@ Widget _buildTwoButton(
       ),
       Expanded(
         child: MoyaMoyaButton(
-          text: "확인",
+          text: successText,
           buttonSize: ButtonSize.large,
           buttonType: ButtonType.primary,
           onPressed: onSuccessPressed,

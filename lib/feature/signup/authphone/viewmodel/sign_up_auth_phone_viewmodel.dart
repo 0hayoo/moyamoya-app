@@ -15,12 +15,12 @@ class SignUpAuthPhoneViewModel extends GetxController {
 
   Future<bool> sendCode(String phone) async {
     isSending.value = true;
-    // final result = await userDataSource.sendCode(phone);
-    // switch (result) {
+    // final resultone = await userDataSource.sendCode(phone);
+    // switch (resultone) {
     //   case Success<void>():
     //     "";
     //   case Error<void>():
-    //     Get.snackbar("Error", result.error.toString());
+    //     Get.snackbar("Error", resultone.error.toString());
     // }
     isSending.value = false;
     return true;

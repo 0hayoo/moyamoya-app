@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:moyamoya/designsystem/foundation/app_theme.dart';
 
-class MatchingResultScreen extends StatefulWidget {
-  const MatchingResultScreen({super.key});
+class MatchingResultOneScreen extends StatefulWidget {
+  const MatchingResultOneScreen({super.key});
 
   @override
-  State<MatchingResultScreen> createState() => _MatchingResultScreenState();
+  State<MatchingResultOneScreen> createState() =>
+      _MatchingResultOneScreenState();
 }
 
-class _MatchingResultScreenState extends State<MatchingResultScreen>
+class _MatchingResultOneScreenState extends State<MatchingResultOneScreen>
     with TickerProviderStateMixin {
   late AnimationController _oneController;
   late Animation<Offset> _slideOneAnimation;
@@ -59,11 +60,11 @@ class _MatchingResultScreenState extends State<MatchingResultScreen>
       curve: Curves.easeOut,
     ));
 
-    Future.delayed(Duration(milliseconds: 300 + 1000), () {
+    Future.delayed(Duration(milliseconds: 300), () {
       _oneController.forward(); // 애니메이션 실행
     });
 
-    Future.delayed(Duration(milliseconds: 1300 + 1000), () {
+    Future.delayed(Duration(milliseconds: 1300), () {
       _twoController.forward(); // 애니메이션 실행
     });
   }
