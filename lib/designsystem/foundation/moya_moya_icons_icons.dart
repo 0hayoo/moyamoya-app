@@ -33,4 +33,7 @@ class MoyaMoyaIcons {
   static const IconData arrow_down = IconData(0xe80a, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData calendar = IconData(0xe80b, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData clock = IconData(0xe80c, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData expandarrow = IconData(0xe80d, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData question = IconData(0xe80f, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData gamepad = IconData(0xe810, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }
