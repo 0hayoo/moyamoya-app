@@ -36,4 +36,5 @@ class MoyaMoyaIcons {
   static const IconData expandarrow = IconData(0xe80d, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData question = IconData(0xe80f, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData gamepad = IconData(0xe810, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData lock = IconData(0xe811, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }

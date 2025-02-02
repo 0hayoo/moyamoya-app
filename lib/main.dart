@@ -29,6 +29,7 @@ import 'package:moyamoya/feature/matching/loading/navigation/matching_loading_na
 import 'package:moyamoya/feature/matching/resultone/navigation/matching_result_one_navigation.dart';
 import 'package:moyamoya/feature/matching/resulttwo/navigation/matching_result_two_navigation.dart';
 import 'package:moyamoya/feature/onboarding/navigation/onbaording_navigation.dart';
+import 'package:moyamoya/feature/play/info/navigation/play_info_navigation.dart';
 import 'package:moyamoya/feature/play/origin/navigation/play_origin_navigation.dart';
 import 'package:moyamoya/feature/signup/authphone/navigation/sign_up_auth_phone_navigation.dart';
 import 'package:moyamoya/feature/signup/finalcheck/navigation/sign_up_final_check_navigation.dart';
@@ -64,7 +65,7 @@ class MoyaMoyaApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (_) => AppTheme(),
       builder: (context, _) => GetMaterialApp(
-        initialRoute: playOriginRoute,
+        initialRoute: playInfoRoute,
         title: "Flutter Demo",
         theme: AppTheme.light,
         darkTheme: AppTheme.dark,
@@ -76,6 +77,9 @@ class MoyaMoyaApp extends StatelessWidget {
           matchingResultOneScreen(),
           matchingResultTwoScreen(),
           playOriginScreen(
+            popBackStack: Get.back,
+          ),
+          playInfoScreen(
             popBackStack: Get.back,
           ),
           onboardingScreen(
