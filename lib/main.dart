@@ -65,7 +65,7 @@ class MoyaMoyaApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (_) => AppTheme(),
       builder: (context, _) => GetMaterialApp(
-        initialRoute: playInfoRoute,
+        initialRoute: homeRoute,
         title: "Flutter Demo",
         theme: AppTheme.light,
         darkTheme: AppTheme.dark,

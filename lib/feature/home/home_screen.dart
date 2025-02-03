@@ -5,6 +5,7 @@ import 'package:moyamoya/designsystem/component/top_app_bar.dart';
 import 'package:moyamoya/designsystem/extension/padding_extension.dart';
 import 'package:moyamoya/designsystem/foundation/app_theme.dart';
 import 'package:moyamoya/designsystem/foundation/moya_moya_icons_icons.dart';
+import 'package:moyamoya/ui/bottom_navigation_bar.dart';
 import 'package:smooth_corner/smooth_corner.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -32,6 +33,10 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: MoyaMoyaTopAppBar(
         title: "홈",
         appBarType: TopAppBarType.basic,
+      ),
+      bottomNavigationBar: MoyaMoyaBottomNavigationBar(
+        selectedItem: BottomNavItem.home,
+        onItemPressed: (item) {},
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(
