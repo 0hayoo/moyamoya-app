@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:moyamoya/designsystem/component/button.dart';
 import 'package:moyamoya/designsystem/foundation/app_theme.dart';
 
-class OnboardingScreen extends StatelessWidget {
-  const OnboardingScreen({
+class OnboardingOriginScreen extends StatelessWidget {
+  const OnboardingOriginScreen({
     super.key,
     required this.navigateToSignUp,
   });

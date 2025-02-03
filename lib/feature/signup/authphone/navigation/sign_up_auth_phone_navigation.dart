@@ -7,6 +7,7 @@ const signUpAuthPhoneRoute = "/signupauthtel";
 
 GetPage<SignUpAuthPhoneScreen> signUpAuthPhoneScreen({
   required VoidCallback popBackStack,
+  required VoidCallback navigateToHomeScreen,
   required Function(String phone, String authCode)
       navigateToSignUpRetrieveSchoolScreen,
 }) =>
@@ -14,6 +15,7 @@ GetPage<SignUpAuthPhoneScreen> signUpAuthPhoneScreen({
       name: signUpAuthPhoneRoute,
       page: () => SignUpAuthPhoneScreen(
         popBackStack: popBackStack,
+        navigateToHomeScreen: navigateToHomeScreen,
         navigateToSignUpRetrieveSchoolScreen:
             navigateToSignUpRetrieveSchoolScreen,
       ),

@@ -28,7 +28,8 @@ import 'package:moyamoya/feature/input/myinfo/skincolor/navigation/input_my_info
 import 'package:moyamoya/feature/matching/loading/navigation/matching_loading_navigation.dart';
 import 'package:moyamoya/feature/matching/resultone/navigation/matching_result_one_navigation.dart';
 import 'package:moyamoya/feature/matching/resulttwo/navigation/matching_result_two_navigation.dart';
-import 'package:moyamoya/feature/onboarding/navigation/onbaording_navigation.dart';
+import 'package:moyamoya/feature/onboarding/anim/navigation/onboarding_anim_navigation.dart';
+import 'package:moyamoya/feature/onboarding/origin/navigation/onboarding_origin_navigation.dart';
 import 'package:moyamoya/feature/play/info/navigation/play_info_navigation.dart';
 import 'package:moyamoya/feature/play/origin/navigation/play_origin_navigation.dart';
 import 'package:moyamoya/feature/signup/authphone/navigation/sign_up_auth_phone_navigation.dart';
@@ -65,7 +66,7 @@ class MoyaMoyaApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (_) => AppTheme(),
       builder: (context, _) => GetMaterialApp(
-        initialRoute: homeRoute,
+        initialRoute: onboardingAnimRoute,
         title: "Flutter Demo",
         theme: AppTheme.light,
         darkTheme: AppTheme.dark,
@@ -82,7 +83,13 @@ class MoyaMoyaApp extends StatelessWidget {
           playInfoScreen(
             popBackStack: Get.back,
           ),
-          onboardingScreen(
+          onboardingAnimScreen(
+            navigateToOnboardingOriginScreen: navigateToOnBoardingOriginScreen,
+            navigateToHome: () {
+              navigateToHome(popAllPage: true);
+            },
+          ),
+          onboardingOriginScreen(
             navigateToSignUp: navigateToSignUpInputPhoneScreen,
           ),
           signUpInputPhoneScreen(
@@ -95,13 +102,17 @@ class MoyaMoyaApp extends StatelessWidget {
             },
           ),
           signUpAuthPhoneScreen(
-              popBackStack: Get.back,
-              navigateToSignUpRetrieveSchoolScreen: (phone, verifyCode) {
-                navigateToSignUpRetrieveSchoolScreen(
-                  phone: phone,
-                  verifyCode: verifyCode,
-                );
-              }),
+            popBackStack: Get.back,
+            navigateToHomeScreen: () {
+              navigateToHome(popAllPage: true);
+            },
+            navigateToSignUpRetrieveSchoolScreen: (phone, verifyCode) {
+              navigateToSignUpRetrieveSchoolScreen(
+                phone: phone,
+                verifyCode: verifyCode,
+              );
+            },
+          ),
           signUpRetrieveSchoolScreen(
             popBackStack: Get.back,
             navigateToSignUpInputSchoolInfoScreen: (
@@ -198,9 +209,7 @@ class MoyaMoyaApp extends StatelessWidget {
           ),
           signUpFinalCheckScreen(
             popBackStack: Get.back,
-            navigateToHome: () {
-              debugPrint("홈으로 이동");
-            },
+            navigateToHome: navigateToHome,
           ),
           inputMyInfoMessageIntervalScreen(
             popBackStack: Get.back,

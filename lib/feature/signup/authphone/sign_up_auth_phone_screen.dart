@@ -11,10 +11,12 @@ class SignUpAuthPhoneScreen extends StatefulWidget {
   SignUpAuthPhoneScreen({
     super.key,
     required this.popBackStack,
+    required this.navigateToHomeScreen,
     required this.navigateToSignUpRetrieveSchoolScreen,
   });
 
   final VoidCallback popBackStack;
+  final VoidCallback navigateToHomeScreen;
   final Function(String phone, String authCode)
       navigateToSignUpRetrieveSchoolScreen;
   final String phone = Get.parameters["phone"] ?? "";
@@ -149,6 +151,8 @@ class _SignUpAuthPhoneScreenState extends State<SignUpAuthPhoneScreen> {
                               widget.phone,
                               _verifyCodeTextController.text,
                             );
+                          } else if (result == false) {
+                            widget.navigateToHomeScreen();
                           }
                         }
                       },
