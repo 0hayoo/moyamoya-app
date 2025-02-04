@@ -8,12 +8,14 @@ class MoyaMoyaCenteredTextField extends StatefulWidget {
     required this.controller,
     this.hintText,
     this.obscureText = false,
+    this.maxLength,
     this.keyboardType,
   });
 
   final String? hintText;
   final TextEditingController? controller;
   final bool obscureText;
+  final int? maxLength;
   final TextInputType? keyboardType;
 
   @override
@@ -53,7 +55,9 @@ class _MoyaMoyaCenteredTextFieldState extends State<MoyaMoyaCenteredTextField> {
           hintText: widget.hintText,
           hintStyle: context.typography.headlineMedium.copyWith(
               color: context.colors.labelNormal.withValues(alpha: 0.3)),
+          counterText: "",
         ),
+        maxLength: widget.maxLength,
         style: context.typography.headlineMedium,
         textAlign: TextAlign.center,
         obscureText: widget.obscureText,

@@ -32,7 +32,7 @@ class UserDataSourceImpl implements UserDataSource {
   Future<Result<void>> sendCode(String phone) async {
     return await getResult(() async {
       final response = (await coreDio.post<Map<String, dynamic>>(
-        "${BaseUrl.user}/send-code",
+        "${BaseUrl.user}/send-codewww",
         data: UserSendCodeRequest(phone),
       ))
           .safeRequest();

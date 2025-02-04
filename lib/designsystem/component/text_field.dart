@@ -11,6 +11,7 @@ class MoyaMoyaTextField extends StatefulWidget {
     this.hintText,
     this.obscureText = false,
     this.keyboardType,
+    this.maxLength,
     this.onPrefixClick,
     this.onSuffixClick,
   });
@@ -19,6 +20,7 @@ class MoyaMoyaTextField extends StatefulWidget {
   final TextEditingController? controller;
   final bool obscureText;
   final TextInputType? keyboardType;
+  final int? maxLength;
   final GestureTapCallback? onPrefixClick;
   final GestureTapCallback? onSuffixClick;
 
@@ -65,6 +67,7 @@ class _MoyaMoyaTextFieldState extends State<MoyaMoyaTextField> {
                     color: context.colors.labelNormal.withValues(alpha: 0.3),
                   ),
                 ),
+                maxLength: widget.maxLength,
                 style: context.typography.headlineMedium,
                 textAlign: TextAlign.start,
                 obscureText: widget.obscureText,

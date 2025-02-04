@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_instance/get_instance.dart';
+import 'package:get/get.dart';
+import 'package:moyamoya/feature/onboarding/origin/navigation/onboarding_origin_navigation.dart';
 import 'package:moyamoya/local/token/token_data_source.dart';
 import 'package:moyamoya/network/core/base_url.dart';
 
@@ -65,6 +65,8 @@ class _AuthInterceptor extends Interceptor {
           return handler.resolve(response);
         } catch (e) {
           // Refresh Token 만료 또는 기타 오류 처리
+          await tokenDataSource.deleteToken();
+          navigateToOnBoardingOriginScreen();
           return handler.reject(err);
         }
       }

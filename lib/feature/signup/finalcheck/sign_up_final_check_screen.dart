@@ -33,6 +33,7 @@ class SignUpFinalCheckScreen extends StatefulWidget {
 
 class _SignUpFinalCheckScreenState extends State<SignUpFinalCheckScreen> {
   final _viewModel = Get.put(SignUpFinalCheckViewModel());
+  bool _isLoading = false;
 
   int _calculateBirthYear() {
     final currentYear = DateTime.now().year;
@@ -141,7 +142,11 @@ class _SignUpFinalCheckScreenState extends State<SignUpFinalCheckScreen> {
                   buttonSize: ButtonSize.larger,
                   buttonType: ButtonType.primary,
                   rounded: true,
+                  isEnabled: !_isLoading,
                   onPressed: () async {
+                    setState(() {
+                      _isLoading = true;
+                    });
                     final result = await _viewModel.signUp(
                       phone: widget.phone,
                       schoolId: widget.schoolId,
@@ -152,6 +157,9 @@ class _SignUpFinalCheckScreenState extends State<SignUpFinalCheckScreen> {
                       profileImageUrl: widget.profileImageUrl,
                       verifyCode: widget.verifyCode,
                     );
+                    setState(() {
+                      _isLoading = false;
+                    });
                     if (result) {
                       widget.navigateToHome();
                     }

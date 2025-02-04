@@ -78,6 +78,8 @@ class _SignUpAuthPhoneScreenState extends State<SignUpAuthPhoneScreen> {
                     width: double.infinity,
                     child: MoyaMoyaCenteredTextField(
                       controller: _verifyCodeTextController,
+                      maxLength: 6,
+                      keyboardType: TextInputType.number,
                     ),
                   ),
                   AnimatedSize(

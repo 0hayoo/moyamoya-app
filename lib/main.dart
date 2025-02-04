@@ -209,7 +209,9 @@ class MoyaMoyaApp extends StatelessWidget {
           ),
           signUpFinalCheckScreen(
             popBackStack: Get.back,
-            navigateToHome: navigateToHome,
+            navigateToHome: () {
+              navigateToHome(popAllPage: true);
+            },
           ),
           inputMyInfoMessageIntervalScreen(
             popBackStack: Get.back,

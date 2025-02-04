@@ -19,4 +19,8 @@ interface class TokenDataSource {
   Future<UserToken?> getToken() async {
     throw UnimplementedError();
   }
+
+  Future<void> deleteToken() async {
+    throw UnimplementedError();
+  }
 }

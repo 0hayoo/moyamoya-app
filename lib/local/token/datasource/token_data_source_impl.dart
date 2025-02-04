@@ -45,4 +45,10 @@ class TokenDataSourceImpl implements TokenDataSource {
       value: accessToken,
     );
   }
+
+  @override
+  Future<void> deleteToken() async {
+    await moyaFlutterSecureStorage.delete(key: _accessTokenKey);
+    await moyaFlutterSecureStorage.delete(key: _refreshTokenKey);
+  }
 }
