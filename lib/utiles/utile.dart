@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 bool containsInitialConsonant(String string, String query) {
   /*
       Hangul UTF16 structure :
@@ -59,4 +61,15 @@ bool containsInitialConsonant(String string, String query) {
     if (contains) return true;
   }
   return false;
+}
+
+double calculateTextWidth(BuildContext context, String text, TextStyle style) {
+  final TextPainter textPainter = TextPainter(
+    text: TextSpan(text: text, style: style),
+    maxLines: 1,
+    textScaleFactor: MediaQuery.of(context).textScaleFactor,
+    textDirection: TextDirection.ltr,
+  )..layout(); // 레이아웃을 계산해야 크기를 얻을 수 있음
+
+  return textPainter.width;
 }

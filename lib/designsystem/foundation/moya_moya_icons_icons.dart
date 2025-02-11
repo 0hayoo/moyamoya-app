@@ -40,4 +40,5 @@ class MoyaMoyaIcons {
   static const IconData lock = IconData(0xe811, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData flame = IconData(0xe812, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData email = IconData(0xe813, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData flamefill = IconData(0xe814, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }

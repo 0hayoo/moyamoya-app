@@ -32,6 +32,7 @@ import 'package:moyamoya/feature/onboarding/anim/navigation/onboarding_anim_navi
 import 'package:moyamoya/feature/onboarding/origin/navigation/onboarding_origin_navigation.dart';
 import 'package:moyamoya/feature/play/info/navigation/play_info_navigation.dart';
 import 'package:moyamoya/feature/play/origin/navigation/play_origin_navigation.dart';
+import 'package:moyamoya/feature/point/get/navigation/point_get_navigation.dart';
 import 'package:moyamoya/feature/signup/authphone/navigation/sign_up_auth_phone_navigation.dart';
 import 'package:moyamoya/feature/signup/finalcheck/navigation/sign_up_final_check_navigation.dart';
 import 'package:moyamoya/feature/signup/inputgender/navigation/sign_up_input_gender_navigation.dart';
@@ -66,7 +67,7 @@ class MoyaMoyaApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (_) => AppTheme(),
       builder: (context, _) => GetMaterialApp(
-        initialRoute: onboardingAnimRoute,
+        initialRoute: pointGetRoute,
         title: "Flutter Demo",
         theme: AppTheme.light,
         darkTheme: AppTheme.dark,
@@ -77,6 +78,7 @@ class MoyaMoyaApp extends StatelessWidget {
           matchingLoadingScreen(),
           matchingResultOneScreen(),
           matchingResultTwoScreen(),
+          pointGetScreen(),
           playOriginScreen(
             popBackStack: Get.back,
           ),
