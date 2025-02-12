@@ -33,6 +33,7 @@ import 'package:moyamoya/feature/onboarding/origin/navigation/onboarding_origin_
 import 'package:moyamoya/feature/play/info/navigation/play_info_navigation.dart';
 import 'package:moyamoya/feature/play/origin/navigation/play_origin_navigation.dart';
 import 'package:moyamoya/feature/point/get/navigation/point_get_navigation.dart';
+import 'package:moyamoya/feature/point/origin/navigation/point_origin_navigation.dart';
 import 'package:moyamoya/feature/signup/authphone/navigation/sign_up_auth_phone_navigation.dart';
 import 'package:moyamoya/feature/signup/finalcheck/navigation/sign_up_final_check_navigation.dart';
 import 'package:moyamoya/feature/signup/inputgender/navigation/sign_up_input_gender_navigation.dart';
@@ -67,18 +68,32 @@ class MoyaMoyaApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (_) => AppTheme(),
       builder: (context, _) => GetMaterialApp(
-        initialRoute: pointGetRoute,
+        initialRoute: pointOriginRoute,
         title: "Flutter Demo",
         theme: AppTheme.light,
         darkTheme: AppTheme.dark,
         themeMode: context.watch<AppTheme>().themeMode,
         debugShowCheckedModeBanner: false,
         getPages: [
-          homeScreen(),
+          homeScreen(
+            navigateToPoint: () {
+              navigateToPointOriginScreen(
+                popAllPage: true,
+              );
+            },
+          ),
           matchingLoadingScreen(),
           matchingResultOneScreen(),
           matchingResultTwoScreen(),
           pointGetScreen(),
+          pointOriginScreen(
+            navigateToHome: () {
+              navigateToHome(
+                popAllPage: true,
+                useAnimation: false,
+              );
+            },
+          ),
           playOriginScreen(
             popBackStack: Get.back,
           ),

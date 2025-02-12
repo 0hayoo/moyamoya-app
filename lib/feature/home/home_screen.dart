@@ -9,7 +9,12 @@ import 'package:moyamoya/ui/bottom_navigation_bar.dart';
 import 'package:smooth_corner/smooth_corner.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  const HomeScreen({
+    super.key,
+    required this.navigateToPoint,
+  });
+
+  final VoidCallback navigateToPoint;
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -36,7 +41,16 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       bottomNavigationBar: MoyaMoyaBottomNavigationBar(
         selectedItem: BottomNavItem.home,
-        onItemPressed: (item) {},
+        onItemPressed: (item) {
+          switch (item) {
+            case BottomNavItem.box:
+              "";
+            case BottomNavItem.home:
+              "";
+            case BottomNavItem.point:
+              widget.navigateToPoint();
+          }
+        },
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(

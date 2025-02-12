@@ -53,19 +53,26 @@ class MoyaMoyaBottomNavigationBar extends StatelessWidget {
             _buildItem(
               context: context,
               icon: MoyaMoyaIcons.email,
-              onPressed: () {},
+              onPressed: () {
+                onItemPressed(BottomNavItem.box);
+              },
               isSelected: BottomNavItem.box == selectedItem,
             ),
             _buildItem(
               context: context,
               icon: MoyaMoyaIcons.home,
-              onPressed: () {},
+              onPressed: () {
+                onItemPressed(BottomNavItem.home);
+              },
               isSelected: BottomNavItem.home == selectedItem,
             ),
             _buildItem(
               context: context,
               icon: MoyaMoyaIcons.flame,
-              onPressed: () {},
+              selectedIcon: MoyaMoyaIcons.flamefill,
+              onPressed: () {
+                onItemPressed(BottomNavItem.point);
+              },
               isSelected: BottomNavItem.point == selectedItem,
             ),
           ],
@@ -77,6 +84,7 @@ class MoyaMoyaBottomNavigationBar extends StatelessWidget {
   Widget _buildItem({
     required BuildContext context,
     required IconData icon,
+    IconData? selectedIcon,
     required VoidCallback onPressed,
     required bool isSelected,
   }) {
@@ -89,7 +97,7 @@ class MoyaMoyaBottomNavigationBar extends StatelessWidget {
           borderRadius: BorderRadius.zero,
           child: Center(
             child: Icon(
-              icon,
+              isSelected ? (selectedIcon ?? icon) : icon,
               size: 36,
               color: isSelected
                   ? context.colors.labelNormal
